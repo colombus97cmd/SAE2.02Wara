@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WARA : La première marque de vêtements 100% biodégradables issue de la valorisation des sargasses en Guadeloupe. Une mode régénérative née du fléau des Caraïbes.">
+    <meta name="keywords" content="WARA, sargasses, mode durable, vêtements biodégradables, Guadeloupe, éco-conception, économie circulaire">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.wara.gp/">
+    <meta property="og:title" content="WARA | Mode régénérative tropicale">
+    <meta property="og:description" content="Découvrez comment WARA transforme les sargasses de Guadeloupe en textiles innovants et 100% biodégradables.">
+    <meta property="og:image" content="assets/img/og-image.jpg">
+
+    <title>WARA | Mode régénérative tropicale & Valorisation des Sargasses</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a href="#main-content" class="sr-only">Passer au contenu principal</a>
+    <header>
+        <nav class="navbar" role="navigation" aria-label="Navigation principale">
+            <div class="logo">
+                <a href="index.html">WARA</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="concept.html" data-i18n="nav_concept">Le Concept</a></li>
+                <li><a href="boutique.html" data-i18n="nav_shop">Boutique</a></li>
+                <li><a href="panier.html" data-i18n="nav_cart">Panier</a></li>
+                <li class="lang-switcher">
+                    <button class="lang-switch" data-lang="fr">FR</button>
+                    <button class="lang-switch" data-lang="en">EN</button>
+                </li>
+            </ul>
+            <button class="burger-menu" aria-label="Ouvrir le menu de navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Section Hero (Accueil) -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 data-i18n="hero_title">Né du fléau des Caraïbes.</h1>
+                <p data-i18n="hero_subtitle">La première ligne de vêtements 100% biodégradables issue de la valorisation des sargasses en Guadeloupe.</p>
+                <a href="boutique.html" class="btn-primary" data-i18n="hero_btn">Découvrir la collection</a>
+            </div>
+        </section>
+
+        <!-- Section Concept -->
+        <section id="concept" class="concept-section">
+            <h2 data-i18n="concept_title">De la pollution à la solution</h2>
+            <p data-i18n="concept_text">Nous transformons un désastre écologique en une fibre textile innovante, durable et respectueuse de l'environnement.</p>
+            <a href="concept.html" class="btn-secondary" data-i18n="concept_btn">En savoir plus sur notre fibre</a>
+        </section>
+
+        <!-- Section Engagements -->
+        <section class="engagements container">
+            <div class="engagement-card">
+                <span class="icon">🌴</span>
+                <h3 data-i18n="engagement_local_title">100% Local</h3>
+                <p data-i18n="engagement_local_text">Récolté et transformé en Guadeloupe pour limiter l'empreinte carbone.</p>
+            </div>
+            <div class="engagement-card">
+                <span class="icon">🔄</span>
+                <h3 data-i18n="engagement_regen_title">Économie Régénérative</h3>
+                <p data-i18n="engagement_regen_text">Nous transformons un déchet encombrant en une ressource précieuse.</p>
+            </div>
+            <div class="engagement-card">
+                <span class="icon">🪱</span>
+                <h3 data-i18n="engagement_bio_title">Biodégradable</h3>
+                <p data-i18n="engagement_bio_text">Nos vêtements retournent à la terre en moins de 3 mois.</p>
+            </div>
+        </section>
+
+        <!-- Section Style Quiz -->
+        <section id="style-quiz" class="container quiz-section">
+            <div class="quiz-container card">
+                <h2 data-i18n="quiz_title">Trouvez votre Look WARA</h2>
+                <p data-i18n="quiz_text">Découvrez les pièces qui correspondent le mieux à votre style et à vos engagements.</p>
+                <div id="quiz-content">
+                    <button id="start-quiz" class="btn-primary" data-i18n="quiz_start">Démarrer le Style Quiz</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Produits Phares -->
+        <section id="featured-products" class="container">
+            <h2 data-i18n="featured_title">Nos dernières créations</h2>
+            <div class="products-grid home-grid">
+                <!-- Chargé dynamiquement par JS -->
+                <p data-i18n="featured_loading">Chargement des pépites...</p>
+            </div>
+            <div style="text-align: center; margin-top: var(--spacing-lg);">
+                <a href="boutique.html" class="btn-primary" data-i18n="featured_view_all">Voir toute la boutique</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p data-i18n="footer_rights">&copy; 2026 WARA - Projet SAE 2.02 BUT MMI. Tous droits réservés.</p>
+        <p data-i18n="footer_cert">Certifié GOTS &amp; OEKO-TEX | Made in Guadeloupe</p>
+        <nav class="footer-links" aria-label="Liens légaux">
+            <a href="mentions-legales.html#mentions">Mentions légales</a>
+            <a href="mentions-legales.html#cgv">CGV</a>
+            <a href="mentions-legales.html#cgu">CGU</a>
+            <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+        </nav>
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/quiz.js"></script>
+</body>
+</html>

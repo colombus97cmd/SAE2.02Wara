@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez les détails techniques des vêtements WARA : composition, éco-score et timeline de décomposition naturelle.">
+    <meta property="og:type" content="product">
+    <title>Détails du Produit | WARA Mode Durable</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a href="#main-content" class="sr-only">Passer au contenu principal</a>
+    <header>
+        <nav class="navbar" role="navigation" aria-label="Navigation principale">
+            <div class="logo"><a href="index.html">WARA</a></div>
+            <ul class="nav-links">
+                <li><a href="concept.html" data-i18n="nav_concept">Le Concept</a></li>
+                <li><a href="boutique.html" data-i18n="nav_shop">Boutique</a></li>
+                <li><a href="panier.html" data-i18n="nav_cart">Panier</a></li>
+                <li class="lang-switcher">
+                    <button class="lang-switch" data-lang="fr">FR</button>
+                    <button class="lang-switch" data-lang="en">EN</button>
+                </li>
+            </ul>
+            <button class="burger-menu" aria-label="Ouvrir le menu de navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main id="main-content" class="container product-detail">
+        <div class="gallery">
+            <div class="main-image-placeholder"></div>
+            <div class="thumbnails" role="list">
+                <div class="thumb-placeholder" role="listitem"></div>
+                <div class="thumb-placeholder" role="listitem"></div>
+                <div class="thumb-placeholder" role="listitem"></div>
+            </div>
+        </div>
+
+        <div class="product-selection">
+            <span class="eco-tag" data-i18n="product_eco_tag">Éco-score A - 100% Biodégradable</span>
+            <h1 id="product-name">T-Shirt Sargasse "Alizé"</h1>
+            <p class="price-large" id="product-price">45,00 €</p>
+            <p class="description" id="product-desc">Un t-shirt léger et respirant, conçu à partir de fibres d'algues sargasses récoltées sur les côtes de Guadeloupe. Doux pour la peau et pour la planète.</p>
+            
+            <fieldset class="selectors">
+                <legend><h4 data-i18n="product_choose_size">Choisir une taille</h4></legend>
+                <div class="size-options">
+                    <label><input type="radio" name="size" value="S"> S</label>
+                    <label><input type="radio" name="size" value="M" checked> M</label>
+                    <label><input type="radio" name="size" value="L"> L</label>
+                    <label><input type="radio" name="size" value="XL"> XL</label>
+                </div>
+            </fieldset>
+
+            <button class="btn-primary full-width" data-i18n="product_add_to_cart">Ajouter au panier</button>
+        </div>
+    </main>
+
+    <section class="container technical-details">
+        <div class="detail-block">
+            <h3 data-i18n="product_composition">Composition</h3>
+            <ul id="product-composition">
+                <!-- Peut être dynamique -->
+                <li>70% <span data-i18n="comp_sargassum">Fibre de Sargasses</span></li>
+                <li>30% <span data-i18n="comp_linen">Lin biologique certifié GOTS</span></li>
+                <li><span data-i18n="comp_dye">Teinture naturelle à base d'indigo</span></li>
+            </ul>
+        </div>
+        <div class="detail-block">
+            <h3 data-i18n="product_lifecycle">Cycle de vie du produit</h3>
+            <div class="lifecycle-timeline">
+                <div class="timeline-step">
+                    <strong data-i18n="step_wearing">Portage</strong>
+                    <span>2 à 5 ans</span>
+                </div>
+                <div class="timeline-step">
+                    <strong data-i18n="step_composting">Compostage</strong>
+                    <span data-i18n="step_composting_text">Déposer au bac bio</span>
+                </div>
+                <div class="timeline-step highlight">
+                    <strong data-i18n="step_biodegradation">Biodégradation</strong>
+                    <span data-i18n="step_biodegradation_text">61 jours (moyenne)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container traceability-section">
+        <h2 class="section-title" data-i18n="product_tracability_title">De la plage au vêtement</h2>
+        <div class="timeline" id="product-timeline">
+            <!-- Les étapes seront injectées par JS -->
+            <p class="loading-text" data-i18n="product_tracability_loading">Chargement de l'histoire du vêtement...</p>
+        </div>
+    </section>
+
+    <footer>
+        <p data-i18n="footer_rights">&copy; 2026 WARA - Projet SAE 2.02 BUT MMI. Tous droits réservés.</p>
+        <p data-i18n="footer_cert">Certifié GOTS &amp; OEKO-TEX | Made in Guadeloupe</p>
+        <nav class="footer-links" aria-label="Liens légaux">
+            <a href="mentions-legales.html#mentions">Mentions légales</a>
+            <a href="mentions-legales.html#cgv">CGV</a>
+            <a href="mentions-legales.html#cgu">CGU</a>
+            <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+        </nav>
+    </footer>
+
+    <!-- Scripts pour Strapi -->
+    <script src="js/translations.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/product-detail.js"></script>
+</body>
+</html>

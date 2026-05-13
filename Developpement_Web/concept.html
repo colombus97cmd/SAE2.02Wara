@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez le processus WARA : transformation des sargasses en fibre textile. Notre engagement pour une économie régénérative en Guadeloupe.">
+    <meta property="og:title" content="Le Concept WARA | Transformer un fléau en ressource">
+    <meta property="og:type" content="article">
+    <title>Le Concept | WARA Innovation Textile</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a href="#main-content" class="sr-only">Passer au contenu principal</a>
+    <header>
+        <nav class="navbar" role="navigation" aria-label="Navigation principale">
+            <div class="logo"><a href="index.html">WARA</a></div>
+            <ul class="nav-links">
+                <li><a href="concept.html" class="active" data-i18n="nav_concept">Le Concept</a></li>
+                <li><a href="boutique.html" data-i18n="nav_shop">Boutique</a></li>
+                <li><a href="panier.html" data-i18n="nav_cart">Panier</a></li>
+                <li class="lang-switcher">
+                    <button class="lang-switch" data-lang="fr">FR</button>
+                    <button class="lang-switch" data-lang="en">EN</button>
+                </li>
+            </ul>
+            <button class="burger-menu" aria-label="Ouvrir le menu de navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main id="main-content" class="container">
+        <section class="storytelling">
+            <h1 data-i18n="concept_hero_title">De la pollution à la ressource</h1>
+            <p class="lead" data-i18n="concept_hero_lead">Chaque année, des millions de tonnes de sargasses s'échouent sur les côtes de la Guadeloupe, asphyxiant la biodiversité marine.</p>
+
+            <div class="transformation-process">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4 data-i18n="step1_title">Collecte</h4>
+                    <p data-i18n="step1_text">Ramassage manuel sur les plages pour protéger les fonds marins.</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4 data-i18n="step2_title">Lavage</h4>
+                    <p data-i18n="step2_text">Dessalage à l'eau de pluie récupérée pour éliminer le sel et le sable.</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4 data-i18n="step3_title">Filature</h4>
+                    <p data-i18n="step3_text">Extraction de la cellulose et mélange avec du lin bio.</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4 data-i18n="step4_title">Confection</h4>
+                    <p data-i18n="step4_text">Tissage et couture dans notre atelier à Basse-Terre.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="certifications">
+            <h2 data-i18n="cert_title">Nos Certifications</h2>
+            <div class="certif-logos">
+                <div class="certif-item">GOTS</div>
+                <div class="certif-item">OEKO-TEX</div>
+                <div class="certif-item">Cradle to Cradle</div>
+            </div>
+        </section>
+
+        <section class="transparency">
+            <h2 data-i18n="impact_title">Transparence & Impact</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-i18n="table_indicator">Indicateur</th>
+                        <th data-i18n="table_cotton">Coton Classique</th>
+                        <th data-i18n="table_wara">Fibre WARA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-i18n="row_water">Consommation d'eau (L/T-shirt)</td>
+                        <td>2 700 L</td>
+                        <td>450 L</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="row_bio">Biodégradabilité</td>
+                        <td data-i18n="row_bio_cotton">Plusieurs mois (si traité)</td>
+                        <td data-i18n="row_bio_wara">61 jours</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="row_origin">Origine matière</td>
+                        <td data-i18n="row_origin_cotton">Agriculture intensive</td>
+                        <td data-i18n="row_origin_wara">Valorisation de déchet</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p data-i18n="footer_rights">&copy; 2026 WARA - Projet SAE 2.02 BUT MMI. Tous droits réservés.</p>
+        <p data-i18n="footer_cert">Certifié GOTS &amp; OEKO-TEX | Made in Guadeloupe</p>
+        <nav class="footer-links" aria-label="Liens légaux">
+            <a href="mentions-legales.html#mentions">Mentions légales</a>
+            <a href="mentions-legales.html#cgv">CGV</a>
+            <a href="mentions-legales.html#cgu">CGU</a>
+            <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+        </nav>
+    </footer>
+
+    <!-- Scripts pour Strapi -->
+    <script src="js/translations.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/concept.js"></script>
+</body>
+</html>

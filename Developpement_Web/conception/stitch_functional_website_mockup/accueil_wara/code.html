@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WARA - Regenerative Textiles</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Outfit:wght@400;500;700&amp;family=EB+Garamond:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        /* Fallback for fonts if not loaded correctly via TW config */
+        .font-cormorant { font-family: 'Cormorant Garamond', serif; }
+        
+        /* Soft zoom effect for product cards */
+        .zoom-hover { overflow: hidden; }
+        .zoom-hover img { transition: transform 0.5s ease; }
+        .zoom-hover:hover img { transform: scale(1.05); }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-surface": "#30312e",
+                      "surface": "#fbf9f4",
+                      "surface-variant": "#e4e2dd",
+                      "on-secondary-fixed": "#360f00",
+                      "secondary-container": "#feaa87",
+                      "leaf-green": "#4A5D45",
+                      "sargasse-gold": "#9B7E4B",
+                      "on-primary-fixed-variant": "#364c3c",
+                      "secondary-fixed": "#ffdbcd",
+                      "deep-ocean": "#1B3022",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "surface-tint": "#4d6453",
+                      "secondary": "#8d4d30",
+                      "tertiary": "#211500",
+                      "primary": "#061b0e",
+                      "on-surface": "#1b1c19",
+                      "surface-container-low": "#f5f3ee",
+                      "primary-fixed": "#d0e9d4",
+                      "error": "#ba1a1a",
+                      "error-container": "#ffdad6",
+                      "on-primary": "#ffffff",
+                      "surface-bright": "#fbf9f4",
+                      "on-secondary": "#ffffff",
+                      "primary-container": "#1b3022",
+                      "on-tertiary-fixed-variant": "#5a4316",
+                      "secondary-fixed-dim": "#ffb597",
+                      "inverse-primary": "#b4cdb8",
+                      "outline-variant": "#c3c8c1",
+                      "outline": "#737973",
+                      "on-secondary-container": "#783c21",
+                      "surface-container-highest": "#e4e2dd",
+                      "background": "#fbf9f4",
+                      "surface-dim": "#dbdad5",
+                      "surface-container": "#f0eee9",
+                      "on-primary-fixed": "#0b2013",
+                      "tertiary-fixed": "#ffdea8",
+                      "on-error-container": "#93000a",
+                      "tertiary-container": "#3b2800",
+                      "earth-terracotta": "#C27858",
+                      "on-tertiary-container": "#ad8e5a",
+                      "surface-container-high": "#eae8e3",
+                      "on-background": "#1b1c19",
+                      "on-secondary-fixed-variant": "#70361c",
+                      "tertiary-fixed-dim": "#e4c288",
+                      "sand-white": "#F9F7F2",
+                      "inverse-on-surface": "#f2f1ec",
+                      "on-primary-container": "#819986",
+                      "on-error": "#ffffff",
+                      "on-surface-variant": "#434843",
+                      "on-tertiary-fixed": "#271900",
+                      "primary-fixed-dim": "#b4cdb8"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "base": "4px",
+                      "container-max": "1280px",
+                      "md": "24px",
+                      "sm": "16px",
+                      "xs": "8px",
+                      "xl": "80px",
+                      "lg": "48px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "display-lg-mobile": ["ebGaramond"],
+                      "body-lg": ["outfit"],
+                      "display-lg": ["ebGaramond"],
+                      "headline-h3": ["ebGaramond"],
+                      "body-md": ["outfit"],
+                      "label-bold": ["outfit"],
+                      "label-sm": ["outfit"],
+                      "headline-h1": ["ebGaramond"],
+                      "headline-h2": ["ebGaramond"]
+              },
+              "fontSize": {
+                      "display-lg-mobile": ["2.5rem", {"lineHeight": "1.2", "fontWeight": "500"}],
+                      "body-lg": ["1.125rem", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "display-lg": ["4rem", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                      "headline-h3": ["1.75rem", {"lineHeight": "1.4", "fontWeight": "500"}],
+                      "body-md": ["1rem", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-bold": ["0.875rem", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "label-sm": ["0.75rem", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                      "headline-h1": ["3rem", {"lineHeight": "1.2", "fontWeight": "500"}],
+                      "headline-h2": ["2.25rem", {"lineHeight": "1.3", "fontWeight": "500"}]
+              }
+            }
+          }
+        }
+      </script>
+</head>
+<body class="bg-sand-white text-deep-ocean font-body-md antialiased selection:bg-sargasse-gold selection:text-sand-white">
+<!-- TopNavBar Shared Component -->
+<nav class="bg-surface/80 dark:bg-primary/80 backdrop-blur-md docked full-width top-0 sticky bg-surface dark:bg-primary flat no shadows transition-all duration-300 ease-in-out z-50">
+<div class="flex justify-between items-center px-gutter py-sm max-w-container-max mx-auto w-full">
+<a class="font-headline-h3 text-headline-h3 text-primary dark:text-sand-white tracking-tighter" href="#">WARA</a>
+<div class="hidden md:flex items-center gap-md">
+<a class="text-on-surface-variant dark:text-on-primary-container font-body-md text-body-md hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-300" href="#">Collection</a>
+<a class="text-on-surface-variant dark:text-on-primary-container font-body-md text-body-md hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-300" href="#">Sustainability</a>
+<a class="text-on-surface-variant dark:text-on-primary-container font-body-md text-body-md hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-300" href="#">Engagements</a>
+<a class="text-on-surface-variant dark:text-on-primary-container font-body-md text-body-md hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-300" href="#">Archive</a>
+</div>
+<div class="flex items-center gap-sm">
+<button aria-label="shopping_bag" class="text-primary dark:text-sand-white hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-300">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+<button aria-label="person" class="text-primary dark:text-sand-white hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-300">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative w-full h-[921px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Hero Ocean" class="w-full h-full object-cover object-center scale-105 transform" data-alt="A breathtaking, high-end editorial photograph of a dramatic Caribbean seascape. The water is deep, textured, and moody, hinting at the raw power of the ocean. Sunlight filters through the waves, illuminating scattered strands of golden sargassum seaweed floating near the surface. The aesthetic is tropical-minimalist, emphasizing the deep ocean greens and sargasse gold tones against a natural, untamed environment. The mood is sophisticated and awe-inspiring." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4-wZNkAipyiCvpKF6Kb-ou7Yb1dP1BoqNUoJlBclR1lGzEz_ZoGL0wN_VtzAY4HDzFj_yvB-9g_XNCJQriZb9C_QOLSceh240dYD7s-F8fFPqPB6i8FKqWcsqa0oQYcSlTZ0ZDvqyEZtW0DEFFBI2755mubrPqaDEoznDp8h9TkJsM8oqyJZ38tHxONmsFrF7hChZGygfCJUcyePjncRvfRyIiqY76hVpheobofzZ28nSz6_DzFLOB123sFBzYC-1EhsfryTHSiU"/>
+<div class="absolute inset-0 bg-deep-ocean/30 mix-blend-multiply"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-gutter text-center flex flex-col items-center">
+<h1 class="font-cormorant text-display-lg-mobile md:text-display-lg text-sand-white mb-md max-w-4xl tracking-tight leading-tight">Born from the Caribbean plague.</h1>
+<p class="font-body-lg text-body-lg text-sand-white/90 max-w-xl mb-lg font-light">Transforming invasive sargassum into premium, regenerative textiles.</p>
+<button class="bg-deep-ocean text-sand-white font-label-bold text-label-bold py-sm px-lg rounded transition-colors duration-300 hover:bg-surface-tint">Explore Collection</button>
+</div>
+</section>
+<!-- Transformation Section (Asymmetric Layout) -->
+<section class="py-xl md:py-[120px] px-gutter max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg md:gap-xl items-center">
+<div class="md:col-span-5 md:col-start-2 flex flex-col items-start">
+<div class="inline-flex items-center gap-xs px-sm py-xs border border-leaf-green rounded-full mb-md">
+<span class="material-symbols-outlined text-leaf-green text-sm">cycle</span>
+<span class="font-label-sm text-label-sm text-leaf-green">Fléau to Solution</span>
+</div>
+<h2 class="font-headline-h2 text-headline-h2 text-deep-ocean mb-sm">The Great Transformation.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg leading-relaxed">What washes ashore as an ecological crisis is harvested, purified, and woven into the future of luxury fabrics. Our process respects the earth, utilizing raw sargassum to create a material that is as resilient as it is refined.</p>
+<button class="border border-sargasse-gold text-sargasse-gold font-label-bold text-label-bold py-sm px-lg rounded transition-colors duration-300 hover:bg-earth-terracotta hover:text-sand-white hover:border-earth-terracotta">Read Our Process</button>
+</div>
+<div class="md:col-span-6 relative">
+<img alt="Sargassum Texture" class="w-full aspect-[4/5] object-cover rounded-lg shadow-sm" data-alt="A highly detailed, macro photograph of processed sargassum textile material. The texture is rich, organic, and fibrous, showcasing subtle natural variations in color from deep earthy browns to muted golds. The lighting is soft and directional, highlighting the premium, tactile quality of the fabric. The image is framed minimally against a soft sand-white background, emphasizing a sophisticated, sustainable luxury aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPEHM8Bp2zAK3D8rz2Fit_wnxGRoI0vrmwjVsYXo9PY8jtliqSd4qMAzIiwjTcMjXR-FBvdvHb_uWqEoIn3pziMZAN_UvbzdFSBLkerHlwfH8J18m2yLEcj5cItGsKCQVfYmj50bhGLlx1rLIfwi3AwYiaKNk-_f8whFqh0uZk8xWkYjzTId8sjlR76OGs0mj6fLX8gwY5Zz-grajQvOTghxt4AZ2lYgXTU8c0g6SMjSeJcPLNizaOBh_vPb2QiTs_UBqvUlJIzI0"/>
+<div class="absolute -bottom-lg -left-lg w-1/2 aspect-square bg-surface-container rounded-lg p-sm flex items-center justify-center border border-surface-variant shadow-[0_10px_40px_rgba(0,0,0,0.05)]">
+<img alt="Raw Sargassum" class="w-full h-full object-cover rounded opacity-80 mix-blend-luminosity" data-alt="A striking, minimalist still life of raw, golden sargassum seaweed arranged elegantly on a clean, sand-white surface. The organic shapes of the seaweed contrast beautifully with the stark, empty space around it. The lighting is bright and crisp, casting soft shadows that add depth to the raw material. The overall mood is pure, scientific, yet highly aesthetic, capturing the essence of 'fléau to solution'." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACSvYPW_ewqCmvveCOiPijBIX1aPFZBUicbj87bRMcoTUE6BGrc0Jc0AUAMosnyT9SE37jVbg3x-W-5oFjfRGzz4EDvM4myDQlkwtFaeGdIuwD_bfcHo9yqI4cQnNrDmQhinQ0hOWpXQUoApKq_FMSxleXTxCGttHIITm85zmdPeBkeh1CL0lMwihwC66K3Cv7cAmNPkroVVWYWS1YhwkxZ40dD-iHlFMx0naGo5UMJgcAItzjgTIbxUTHyCKjjdeYowxJcsjdqfo"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Products -->
+<section class="py-xl bg-surface px-gutter">
+<div class="max-w-container-max mx-auto">
+<div class="flex justify-between items-end mb-xl">
+<h2 class="font-headline-h2 text-headline-h2 text-deep-ocean">Core Collection</h2>
+<a class="font-label-bold text-label-bold text-sargasse-gold border-b border-sargasse-gold pb-1 hover:text-earth-terracotta transition-colors" href="#">View All</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Product Card 1 -->
+<div class="group cursor-pointer">
+<div class="zoom-hover aspect-[3/4] mb-sm rounded bg-surface-container overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.02)]">
+<img alt="Product 1" class="w-full h-full object-cover object-center" data-alt="A minimalist fashion editorial shot featuring a draped garment made from WARA's signature sargassum textile. The fabric falls elegantly, displaying its smooth, refined texture and subtle earthy hue. The model is partially visible, emphasizing the material over the person. The setting is a bright, airy studio with soft, diffused natural light and a sand-white background. The aesthetic is high-end, sustainable luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDX3SggeXCL9oZ3Z6CWGd4Wx1c4zWgYTCIrHWr5-6TcZS9Tyh0EitiUX3EGlLKPqu8mqwRMB5DjhsWgP936xuX7GdDX-4aak9g7iv3UNQrTbaZkqmmdFDDsLh4VyjN3cNn_L69Pesuw84EnLqmHiEpBYUFv0Uzp3F-OGg855DM0PJ7LM_r1UccOz1u7XnqKQ0jBuE0OPLhpsWPKqugd_7i_zxmDHFGNDt9vlsCfoaegDXg30_DJCFXwHHNSTaKyNAHRr8OWEeoTASs"/>
+</div>
+<div class="flex justify-between items-baseline">
+<h3 class="font-headline-h3 text-lg text-deep-ocean group-hover:text-sargasse-gold transition-colors">The Sargasse Tunic</h3>
+<span class="font-label-bold text-label-bold text-on-surface-variant">$240</span>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant mt-1">61-Day Biodegradable</p>
+</div>
+<!-- Product Card 2 -->
+<div class="group cursor-pointer">
+<div class="zoom-hover aspect-[3/4] mb-sm rounded bg-surface-container overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.02)]">
+<img alt="Product 2" class="w-full h-full object-cover object-center" data-alt="A close-up, premium product shot of a beautifully tailored shirt crafted from regenerative sargassum fabric. The image focuses on the fine stitching and the subtle, organic weave of the textile, which has a warm, sand-white tone. The lighting is pristine and high-key, creating soft, elegant folds in the fabric. The composition is clean, minimalist, and focuses purely on tactile materiality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtlEPkSkzFLXUvt4T6mbRdwnKn8ENUV_-619ONmQwT4O7kjrIX69mHEWS8gNK0VlXJB5Yi8ymoBoqmMnSE8_rz62ngjqHM3o62oaoiwf_ppwHrTCQcbiq0yladt2cnYWDDLoOJWw_Peq5QVtj15i22BeycWaTZlt2gHp183vADaJRW84PZrAHFai-FGwa6L5AvQHQyT62tbKM5MTeRp-T99_OYHwcmUCgwPvyeYL_Na6Xk8wmBw2TwyAqHuxpHcDFlWHHV7c8xUKw"/>
+</div>
+<div class="flex justify-between items-baseline">
+<h3 class="font-headline-h3 text-lg text-deep-ocean group-hover:text-sargasse-gold transition-colors">Origin Wrap</h3>
+<span class="font-label-bold text-label-bold text-on-surface-variant">$185</span>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant mt-1">Unbleached Raw Fiber</p>
+</div>
+<!-- Product Card 3 -->
+<div class="group cursor-pointer">
+<div class="zoom-hover aspect-[3/4] mb-sm rounded bg-surface-container overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.02)]">
+<img alt="Product 3" class="w-full h-full object-cover object-center" data-alt="An artistic, conceptual photograph showing a sleek, modern tote bag made of dark, ocean-toned sargassum leather-alternative. The bag is resting on a piece of smooth driftwood on a pristine white sand beach. The image captures the essence of coastal luxury, with soft, ambient lighting highlighting the premium finish of the material against the raw, natural setting. The mood is sophisticated and eco-conscious." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcp4Wp_hDmo5UEE9cXDILtyeTHYwReMkOnNC6odHMDCjeyWou9u7DT9d30uTjWAEbB30pALyNZJCVPcysIHtkyStQYK96u3aSePaioU_PDRhNEe82-kFsyt5osdTotCY2ZpajmmKol9ZOZ2Th4-SXIAEadqm7Gh2hBSK3-Z0EacMvTQPVemtisRtuB75zXp7iqBlaFJj_MH1bPOCvDPvbwVnaS3Px9gCVvT7j0KTVuwq_Ct6cTDgXPdWFDGBTIhCOOE7ref_qOmDQ"/>
+</div>
+<div class="flex justify-between items-baseline">
+<h3 class="font-headline-h3 text-lg text-deep-ocean group-hover:text-sargasse-gold transition-colors">Abyss Tote</h3>
+<span class="font-label-bold text-label-bold text-on-surface-variant">$320</span>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant mt-1">Deep Ocean Dye</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Values Bento Grid -->
+<section class="py-xl md:py-[120px] px-gutter max-w-container-max mx-auto">
+<h2 class="font-headline-h2 text-headline-h2 text-deep-ocean mb-xl text-center max-w-2xl mx-auto">A commitment woven into every thread.</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-sm md:gap-md auto-rows-[300px]">
+<!-- Card 1 -->
+<div class="bg-surface-container rounded-lg p-lg flex flex-col justify-between border border-surface-variant shadow-[0_4px_20px_rgba(0,0,0,0.02)] md:col-span-2">
+<span class="material-symbols-outlined text-[32px] text-leaf-green" style="font-variation-settings: 'FILL' 1;">compost</span>
+<div>
+<h3 class="font-headline-h3 text-headline-h3 text-deep-ocean mb-xs">Regenerative Design</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">Our textiles are designed to disappear. The 61-day biodegradation cycle ensures that what comes from the earth returns to it without a trace.</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-sargasse-gold/10 rounded-lg p-lg flex flex-col justify-between border border-sargasse-gold/20 shadow-[0_4px_20px_rgba(0,0,0,0.02)] relative overflow-hidden">
+<span class="material-symbols-outlined text-[32px] text-sargasse-gold relative z-10" style="font-variation-settings: 'FILL' 1;">science</span>
+<div class="relative z-10">
+<h3 class="font-headline-h3 text-headline-h3 text-deep-ocean mb-xs">Guadeloupe Innovation</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Pioneered in our Caribbean labs, refining raw plague into pure potential.</p>
+</div>
+<!-- Decorative background element -->
+<div class="absolute -right-8 -bottom-8 w-40 h-40 bg-sargasse-gold/20 rounded-full blur-2xl"></div>
+</div>
+<!-- Card 3 -->
+<div class="bg-deep-ocean rounded-lg p-lg flex flex-col justify-between shadow-[0_4px_20px_rgba(0,0,0,0.05)] md:col-span-3 text-sand-white relative overflow-hidden group">
+<img alt="Ocean Waves" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-50 transition-opacity duration-700 mix-blend-overlay" data-alt="An abstract, breathtaking aerial view of deep ocean waves breaking subtly. The water is a profound, rich green-blue, almost black in places, representing the 'Deep Ocean' brand color. The lighting is moody and dramatic, with white foam providing stark, elegant contrast. The image serves as a textured, immersive background, embodying the raw, pristine nature of the sea and the brand's commitment to ocean conservation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTFKWDwOnjIu7X7-NUq9V8zBjvbKEUusLz2f9cceAmccxnH-t2_qYflcJpHjJjA8IRrEXL1H-MaZ54Gm0PkUJ8-V6oIfbhT-rCmXKdYsiIYdHX6l5yBQ8TkkRjFxlG_tQn9dSj2TbyhEIo8ssyNL02w08E0XB4V8slqgnMhiuf-LkbpSmf4j5PKDua4DOLCNXrdksodwYjlvglmpPrvL6oPZhBHpq6lAVhxBRm2so_z-2AYbHVjckducVY49xVY23yYJhBlbIdR3I"/>
+<div class="absolute inset-0 bg-gradient-to-t from-deep-ocean/90 to-transparent"></div>
+<span class="material-symbols-outlined text-[32px] text-sand-white relative z-10" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+<div class="relative z-10 md:w-1/2 mt-auto">
+<h3 class="font-headline-h3 text-headline-h3 text-sand-white mb-xs">Ocean Commitment</h3>
+<p class="font-body-md text-body-md text-sand-white/80">Every meter of fabric woven clears our coastlines, restoring marine ecosystems and empowering local coastal communities.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Shared Component -->
+<footer class="bg-surface-container dark:bg-primary-container full-width bg-surface-container dark:bg-primary-container flat no shadows border-t border-surface-variant/50">
+<div class="flex flex-col md:flex-row justify-between items-start gap-lg px-gutter py-xl max-w-container-max mx-auto w-full">
+<div class="flex flex-col items-start max-w-sm">
+<a class="font-headline-h2 text-headline-h2 text-deep-ocean dark:text-sand-white mb-sm" href="#">WARA</a>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-on-primary-container mb-lg">© 2024 WARA. Regenerative Textiles from the Caribbean.</p>
+</div>
+<div class="flex flex-col md:flex-row gap-xl">
+<div class="flex flex-col gap-sm">
+<a class="text-on-surface-variant dark:text-on-primary-container font-body-md text-body-md opacity-80 hover:opacity-100 transition-opacity hover:text-earth-terracotta transition-colors duration-300" href="#">The Sargassum Journey</a>
+<a class="text-on-surface-variant dark:text-on-primary-container font-body-md text-body-md opacity-80 hover:opacity-100 transition-opacity hover:text-earth-terracotta transition-colors duration-300" href="#">Biodegradation Cycle</a>
+<a class="text-on-surface-variant dark:text-on-primary-container font-body-md text-body-md opacity-80 hover:opacity-100 transition-opacity hover:text-earth-terracotta transition-colors duration-300" href="#">Impact Reports</a>
+</div>
+<div class="flex flex-col gap-sm">
+<a class="text-on-surface-variant dark:text-on-primary-container font-body-md text-body-md opacity-80 hover:opacity-100 transition-opacity hover:text-earth-terracotta transition-colors duration-300" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-on-primary-container font-body-md text-body-md opacity-80 hover:opacity-100 transition-opacity hover:text-earth-terracotta transition-colors duration-300" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WARA - Engagements</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-surface": "#30312e",
+                      "surface": "#fbf9f4",
+                      "surface-variant": "#e4e2dd",
+                      "on-secondary-fixed": "#360f00",
+                      "secondary-container": "#feaa87",
+                      "leaf-green": "#4A5D45",
+                      "sargasse-gold": "#9B7E4B",
+                      "on-primary-fixed-variant": "#364c3c",
+                      "secondary-fixed": "#ffdbcd",
+                      "deep-ocean": "#1B3022",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "surface-tint": "#4d6453",
+                      "secondary": "#8d4d30",
+                      "tertiary": "#211500",
+                      "primary": "#061b0e",
+                      "on-surface": "#1b1c19",
+                      "surface-container-low": "#f5f3ee",
+                      "primary-fixed": "#d0e9d4",
+                      "error": "#ba1a1a",
+                      "error-container": "#ffdad6",
+                      "on-primary": "#ffffff",
+                      "surface-bright": "#fbf9f4",
+                      "on-secondary": "#ffffff",
+                      "primary-container": "#1b3022",
+                      "on-tertiary-fixed-variant": "#5a4316",
+                      "secondary-fixed-dim": "#ffb597",
+                      "inverse-primary": "#b4cdb8",
+                      "outline-variant": "#c3c8c1",
+                      "outline": "#737973",
+                      "on-secondary-container": "#783c21",
+                      "surface-container-highest": "#e4e2dd",
+                      "background": "#fbf9f4",
+                      "surface-dim": "#dbdad5",
+                      "surface-container": "#f0eee9",
+                      "on-primary-fixed": "#0b2013",
+                      "tertiary-fixed": "#ffdea8",
+                      "on-error-container": "#93000a",
+                      "tertiary-container": "#3b2800",
+                      "earth-terracotta": "#C27858",
+                      "on-tertiary-container": "#ad8e5a",
+                      "surface-container-high": "#eae8e3",
+                      "on-background": "#1b1c19",
+                      "on-secondary-fixed-variant": "#70361c",
+                      "tertiary-fixed-dim": "#e4c288",
+                      "sand-white": "#F9F7F2",
+                      "inverse-on-surface": "#f2f1ec",
+                      "on-primary-container": "#819986",
+                      "on-error": "#ffffff",
+                      "on-surface-variant": "#434843",
+                      "on-tertiary-fixed": "#271900",
+                      "primary-fixed-dim": "#b4cdb8"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "base": "4px",
+                      "container-max": "1280px",
+                      "md": "24px",
+                      "sm": "16px",
+                      "xs": "8px",
+                      "xl": "80px",
+                      "lg": "48px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "display-lg-mobile": [
+                              "EB Garamond", "serif"
+                      ],
+                      "body-lg": [
+                              "Outfit", "sans-serif"
+                      ],
+                      "display-lg": [
+                              "EB Garamond", "serif"
+                      ],
+                      "headline-h3": [
+                              "EB Garamond", "serif"
+                      ],
+                      "body-md": [
+                              "Outfit", "sans-serif"
+                      ],
+                      "label-bold": [
+                              "Outfit", "sans-serif"
+                      ],
+                      "label-sm": [
+                              "Outfit", "sans-serif"
+                      ],
+                      "headline-h1": [
+                              "EB Garamond", "serif"
+                      ],
+                      "headline-h2": [
+                              "EB Garamond", "serif"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg-mobile": [
+                              "2.5rem",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-lg": [
+                              "1.125rem",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "4rem",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-h3": [
+                              "1.75rem",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "1rem",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-bold": [
+                              "0.875rem",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-sm": [
+                              "0.75rem",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-h1": [
+                              "3rem",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-h2": [
+                              "2.25rem",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.sand-white');
+            color: theme('colors.primary');
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col font-body-md text-body-md">
+<!-- TopNavBar -->
+<header class="bg-surface/80 dark:bg-primary/80 backdrop-blur-md font-body-md text-body-md docked full-width top-0 sticky bg-surface dark:bg-primary flat no shadows transition-all duration-300 ease-in-out z-50">
+<div class="flex justify-between items-center px-gutter py-sm max-w-container-max mx-auto w-full">
+<a class="font-headline-h3 text-headline-h3 text-primary dark:text-sand-white tracking-tighter" href="#">WARA</a>
+<nav class="hidden md:flex gap-md items-center">
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-300" href="#">Collection</a>
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-300" href="#">Sustainability</a>
+<a class="text-secondary dark:text-secondary-fixed-dim font-bold border-b border-secondary hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-300 pb-1" href="#">Engagements</a>
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-300" href="#">Archive</a>
+</nav>
+<div class="flex items-center gap-sm text-primary dark:text-sand-white">
+<button class="hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-300 flex items-center justify-center p-2">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button class="hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-300 flex items-center justify-center p-2">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+<!-- Mobile Menu Toggle (hidden on desktop) -->
+<button class="md:hidden hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-300 flex items-center justify-center p-2">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow flex flex-col w-full">
+<!-- Hero Section -->
+<section class="relative w-full min-h-[819px] flex items-center justify-center overflow-hidden">
+<img alt="Aerial view of sargassum seaweed washing up on a pristine Caribbean beach in Guadeloupe. The contrast between the golden-brown seaweed and the turquoise water highlights the environmental impact. The image captures the raw, natural texture of the shoreline under bright, natural sunlight, fitting the tropical-minimalist aesthetic." class="absolute inset-0 w-full h-full object-cover z-0 opacity-80" data-alt="Aerial view of sargassum seaweed washing up on a pristine Caribbean beach in Guadeloupe. The contrast between the golden-brown seaweed and the turquoise water highlights the environmental impact. The image captures the raw, natural texture of the shoreline under bright, natural sunlight, fitting the tropical-minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAurQaz1T4TCd-KNrM1Qtnz0S-POtqHMbR-vVd0f_m_5oI19uPnB-5vIe0rVcWsIDsSP3raGMmieb-2RZAmFc9gO_tRk_KrinzrN4HbCJV6_93MAVxc_kWiidW-kzPjnBxO_iDhW5cybNUB9t29D9VpcpRvwZpB7UCf_3qXRGaYNU581VF1QKHaeNATCdgLuQlUQMgz0q4svT-mDL6w3kSYRTTvc_5QdmeCoye5dbQG9V-90SeMLTbmsWfx_O_54srjtsG_SHQsiO4"/>
+<div class="absolute inset-0 bg-deep-ocean/40 z-10"></div>
+<div class="relative z-20 max-w-container-max mx-auto px-gutter w-full flex flex-col items-center text-center text-sand-white">
+<span class="font-label-bold text-label-bold tracking-[0.1em] uppercase mb-md opacity-90">Our Commitment</span>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-md max-w-4xl">From Plague to Premium Material.</h1>
+<p class="font-body-lg text-body-lg max-w-2xl mx-auto opacity-90">In Guadeloupe, sargassum is an environmental crisis. We view it as an opportunity. A regenerative journey to transform the ocean's burden into the earth's future textile.</p>
+</div>
+</section>
+<!-- The Problem & Innovation (Asymmetric Layout) -->
+<section class="py-xl px-gutter max-w-container-max mx-auto w-full">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg md:gap-xl items-center">
+<!-- Text Column -->
+<div class="md:col-span-5 flex flex-col gap-md">
+<div class="inline-flex items-center gap-2 border border-leaf-green/30 rounded-full px-4 py-1.5 w-fit">
+<span class="material-symbols-outlined text-leaf-green text-[18px]" data-icon="waves">waves</span>
+<span class="font-label-sm text-label-sm text-leaf-green uppercase tracking-wider">The Crisis</span>
+</div>
+<h2 class="font-headline-h2 text-headline-h2 text-deep-ocean">A Smothered Coastline</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Millions of tons of Sargassum seaweed wash ashore in the Caribbean annually, devastating local marine ecosystems and coastal economies. As it decomposes on beaches, it releases toxic hydrogen sulfide gas.</p>
+<p class="font-body-md text-body-md text-on-surface-variant">WARA was born from the urgent need to address this ecological disaster in Guadeloupe, turning a massive waste problem into a sustainable resource.</p>
+</div>
+<!-- Image Column -->
+<div class="md:col-span-7 relative h-[600px] w-full">
+<img alt="Close-up macro shot of tangled sargassum seaweed on wet sand. The golden and amber hues of the seaweed pods are highlighted by soft, natural light, emphasizing their organic texture. The minimalist composition focuses entirely on the raw material, reflecting a high-end editorial photography style." class="w-full h-full object-cover object-center rounded-lg shadow-[0_10px_40px_rgba(0,0,0,0.05)]" data-alt="Close-up macro shot of tangled sargassum seaweed on wet sand. The golden and amber hues of the seaweed pods are highlighted by soft, natural light, emphasizing their organic texture. The minimalist composition focuses entirely on the raw material, reflecting a high-end editorial photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb0lhxiWRF7nLeOuLS6WK2nPK8kFIKDd1ymQW-xFm2hV13AfRcw9vMS6ctd_a91dAtejPEA7aLInhnXu3n2BzyrA-YTsHEN2eqFJYu95uedMlcP3a6a_BZrhOTBJbu9r0BjnsVPIEzw4SeACXU5FymGelJ4INLGh9f-0ZGMWbIXBqBF39Jr80j5Jj3L5z-E2FhqhOp68anh8O99Mldtk9pfZD6MekCCDnQzXDmfT8IvrcTTKFySW2ChV5V2P6A8G1zh9X0rrr8Y68"/>
+<!-- Floating Data Card -->
+<div class="absolute -bottom-8 -left-8 md:bottom-8 md:-left-12 bg-surface/90 backdrop-blur-md p-md rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-surface-variant max-w-[280px]">
+<span class="block font-headline-h3 text-headline-h3 text-earth-terracotta mb-2">24M+ Tons</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Of Sargassum biomass recorded in the Great Atlantic Belt annually.</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Innovation Diagram Section -->
+<section class="py-xl bg-surface-container-low w-full border-y border-surface-variant/50">
+<div class="max-w-container-max mx-auto px-gutter flex flex-col items-center">
+<div class="text-center max-w-3xl mb-xl">
+<h2 class="font-headline-h2 text-headline-h2 text-deep-ocean mb-sm">The Regenerative Process</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Our proprietary extraction technology isolates biopolymers from raw sargassum without harmful chemicals, spinning them into durable, biodegradable fibers.</p>
+</div>
+<!-- Bento Grid for Process -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-sm w-full">
+<!-- Step 1 -->
+<div class="bg-surface rounded-xl p-lg flex flex-col gap-sm shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-surface-variant/30 hover:-translate-y-1 transition-transform duration-300">
+<div class="w-12 h-12 rounded-full bg-sargasse-gold/10 flex items-center justify-center text-sargasse-gold mb-2">
+<span class="font-label-bold text-label-bold">01</span>
+</div>
+<h3 class="font-headline-h3 text-headline-h3 text-deep-ocean">Harvest</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Ethical collection directly from the shores of Guadeloupe, preventing shoreline decomposition and protecting local flora.</p>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface rounded-xl p-lg flex flex-col gap-sm shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-surface-variant/30 hover:-translate-y-1 transition-transform duration-300">
+<div class="w-12 h-12 rounded-full bg-deep-ocean/10 flex items-center justify-center text-deep-ocean mb-2">
+<span class="font-label-bold text-label-bold">02</span>
+</div>
+<h3 class="font-headline-h3 text-headline-h3 text-deep-ocean">Extraction</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">A closed-loop, cold-water process extracts alginate biopolymers while recovering fresh water for agricultural reuse.</p>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface rounded-xl p-lg flex flex-col gap-sm shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-surface-variant/30 hover:-translate-y-1 transition-transform duration-300">
+<div class="w-12 h-12 rounded-full bg-leaf-green/10 flex items-center justify-center text-leaf-green mb-2">
+<span class="font-label-bold text-label-bold">03</span>
+</div>
+<h3 class="font-headline-h3 text-headline-h3 text-deep-ocean">Spinning</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">The purified polymer is wet-spun into a continuous filament, creating a premium yarn ready for high-end textile weaving.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-primary-container font-body-md text-body-md full-width bg-surface-container dark:bg-primary-container flat no shadows opacity-80 hover:opacity-100 transition-opacity mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-start gap-lg px-gutter py-xl max-w-container-max mx-auto w-full">
+<div class="flex flex-col gap-sm">
+<span class="font-headline-h2 text-headline-h2 text-deep-ocean dark:text-sand-white">WARA</span>
+<p class="text-on-surface-variant dark:text-on-primary-container text-sm max-w-xs">
+                    © 2024 WARA. Regenerative Textiles from the Caribbean.
+                </p>
+</div>
+<nav class="flex flex-col gap-xs">
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-earth-terracotta transition-colors duration-300" href="#">The Sargassum Journey</a>
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-earth-terracotta transition-colors duration-300" href="#">Biodegradation Cycle</a>
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-earth-terracotta transition-colors duration-300" href="#">Impact Reports</a>
+</nav>
+<nav class="flex flex-col gap-xs">
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-earth-terracotta transition-colors duration-300" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-earth-terracotta transition-colors duration-300" href="#">Terms of Service</a>
+</nav>
+</div>
+</footer>
+</body></html>
