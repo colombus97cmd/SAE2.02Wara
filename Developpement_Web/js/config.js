@@ -3,8 +3,14 @@
  */
 
 const CONFIG = {
-    API_URL: "http://localhost:1337",
-    STRAPI_BASE_URL: "http://localhost:1337",
+    // Si le site tourne localement (localhost), on interroge le Strapi local.
+    // Sinon (sur Vercel), on interroge le Strapi en ligne sur Render.
+    API_URL: window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+        ? "http://localhost:1337"
+        : "https://ton-service-render.onrender.com", // REMPLACER par ton URL Render (ex: https://wara-api.onrender.com)
+    STRAPI_BASE_URL: window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+        ? "http://localhost:1337"
+        : "https://ton-service-render.onrender.com", // REMPLACER par ton URL Render
     ENDPOINTS: {
         PRODUCTS: "/api/products",
         CONCEPT: "/api/concept"
