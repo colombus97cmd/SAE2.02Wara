@@ -7,10 +7,10 @@ const CONFIG = {
     // Sinon (sur Vercel), on interroge le Strapi en ligne sur Render.
     API_URL: window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
         ? "http://localhost:1337"
-        : "https://ton-service-render.onrender.com", // REMPLACER par ton URL Render (ex: https://wara-api.onrender.com)
+        : "https://sae2-02wara.onrender.com", 
     STRAPI_BASE_URL: window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
         ? "http://localhost:1337"
-        : "https://ton-service-render.onrender.com", // REMPLACER par ton URL Render
+        : "https://sae2-02wara.onrender.com",
     ENDPOINTS: {
         PRODUCTS: "/api/products",
         CONCEPT: "/api/concept"
