@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_tracabilite_etapes",
+  "info": {
+    "displayName": "Étape",
+    "icon": "list",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "titre": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "icone": {
+      "type": "string"
+    }
+  }
+}
