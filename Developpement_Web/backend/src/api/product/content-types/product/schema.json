@@ -35,7 +35,7 @@
     },
     "image": {
       "type": "media",
-      "multiple": false,
+      "multiple": true,
       "allowedTypes": [
         "images"
       ]
@@ -51,6 +51,14 @@
       ]
     },
     "temps_biodegradation": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "composition": {
       "type": "string",
       "pluginOptions": {
         "i18n": {

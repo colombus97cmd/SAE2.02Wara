@@ -16,10 +16,15 @@ function createProductCard(product, t) {
     let imageUrl = 'https://via.placeholder.com/300x400?text=WARA';
     // Strapi v5 : image est directement un objet (pas de .data.attributes)
     // Strapi v4 : image.data.attributes.url
-    const imgData = attrs.image?.data?.attributes || attrs.image;
-    if (imgData?.url) {
-        const formats = imgData.formats;
-        const path = formats?.small?.url || formats?.thumbnail?.url || imgData.url;
+    let imgData = attrs.image?.data?.attributes || attrs.image;
+    // Si c'est un tableau d'images (multiple: true), on prend la première pour la grille
+    if (Array.isArray(imgData)) {
+        imgData = imgData[0];
+    }
+    const singleImg = imgData?.attributes || imgData;
+    if (singleImg?.url) {
+        const formats = singleImg.formats;
+        const path = formats?.small?.url || formats?.thumbnail?.url || singleImg.url;
         imageUrl = path.startsWith('http') ? path : `${CONFIG.STRAPI_BASE_URL}${path}`;
     }
 

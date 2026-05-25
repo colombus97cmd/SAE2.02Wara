@@ -468,6 +468,28 @@ h1 { font-weight: 700; }
 .thumbnails { display: flex; gap: var(--spacing-sm); }
 .thumb-placeholder { width: 80px; height: 80px; background: #eee; }
 
+.thumb-item {
+    width: 80px;
+    height: 80px;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #eee;
+}
+
+.thumb-item:hover, .thumb-item.active {
+    border-color: var(--color-secondary);
+    transform: scale(1.05);
+}
+
+.thumb-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .product-selection { flex: 1; }
 .eco-tag { color: var(--color-primary); font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
 .price-large { font-size: 2rem; font-weight: bold; margin: var(--spacing-md) 0; }

@@ -24,6 +24,14 @@ async function loadProductDetail() {
     document.querySelector('.price-large').innerText = `${attrs.prix.toFixed(2)} €`;
     document.querySelector('.description').innerHTML = attrs.description || "Pas de description disponible.";
     
+    // Charger la composition de manière dynamique si elle est saisie dans le CMS
+    const compList = document.getElementById('product-composition');
+    if (compList && attrs.composition) {
+        // La composition est saisie sous forme de valeurs séparées par des virgules
+        const items = attrs.composition.split(',').map(item => `<li>${item.trim()}</li>`).join('');
+        compList.innerHTML = items;
+    }
+    
     const ecoTag = document.querySelector('.eco-tag');
     if (ecoTag) {
         ecoTag.innerText = `${t['shop_eco_score']} ${attrs.eco_score} - 100% ${t['engagement_bio_title']}`;
@@ -34,13 +42,58 @@ async function loadProductDetail() {
         bioStep.innerText = attrs.temps_biodegradation;
     }
 
-    // Strapi v5 : image directe, v4 : image.data.attributes
-    const imgData = attrs.image?.data?.attributes || attrs.image;
-    if (imgData?.url) {
-        const imageUrl = imgData.url.startsWith('http') ? imgData.url : `${CONFIG.STRAPI_BASE_URL}${imgData.url}`;
-        const gallery = document.querySelector('.main-image-placeholder');
-        gallery.innerHTML = `<img src="${imageUrl}" alt="${attrs.nom}" style="max-width: 100%; height: auto; border-radius: 8px;">`;
-        gallery.classList.remove('main-image-placeholder');
+    // Gestion de la galerie d'images multiple
+    let images = attrs.image?.data || attrs.image;
+    if (images) {
+        // S'assurer qu'on manipule un tableau d'images
+        if (!Array.isArray(images)) {
+            images = [images];
+        }
+
+        // Nettoyer et filtrer les images valides (compatible Strapi 4 & 5)
+        const imgList = images.map(img => img.attributes || img).filter(img => img && img.url);
+
+        if (imgList.length > 0) {
+            // Afficher la première image dans l'affichage principal
+            const firstImgUrl = imgList[0].url.startsWith('http') ? imgList[0].url : `${CONFIG.STRAPI_BASE_URL}${imgList[0].url}`;
+            const mainGallery = document.querySelector('.main-image-placeholder');
+            if (mainGallery) {
+                mainGallery.innerHTML = `<img id="main-product-img" src="${firstImgUrl}" alt="${attrs.nom}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">`;
+                mainGallery.classList.remove('main-image-placeholder');
+            }
+
+            // Générer et afficher les vignettes (thumbnails)
+            const thumbnailsContainer = document.querySelector('.thumbnails');
+            if (thumbnailsContainer) {
+                thumbnailsContainer.innerHTML = imgList.map((img, index) => {
+                    const thumbUrl = img.formats?.thumbnail?.url || img.url;
+                    const fullUrl = img.url.startsWith('http') ? img.url : `${CONFIG.STRAPI_BASE_URL}${img.url}`;
+                    const activeClass = index === 0 ? 'active' : '';
+                    return `
+                        <div class="thumb-item ${activeClass}" role="listitem" data-full="${fullUrl}">
+                            <img src="${thumbUrl.startsWith('http') ? thumbUrl : `${CONFIG.STRAPI_BASE_URL}${thumbUrl}`}" alt="Vignette ${index + 1}">
+                        </div>
+                    `;
+                }).join('');
+
+                // Ajouter l'effet de clic pour alterner les images
+                const thumbItems = thumbnailsContainer.querySelectorAll('.thumb-item');
+                thumbItems.forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        const target = e.currentTarget;
+                        const fullUrl = target.getAttribute('data-full');
+                        
+                        // Modifier l'image principale
+                        const mainImg = document.getElementById('main-product-img');
+                        if (mainImg) mainImg.src = fullUrl;
+
+                        // Mettre à jour l'état actif des bordures
+                        thumbItems.forEach(t => t.classList.remove('active'));
+                        target.classList.add('active');
+                    });
+                });
+            }
+        }
     }
 
     // 4. Charger la Timeline de Traçabilité
