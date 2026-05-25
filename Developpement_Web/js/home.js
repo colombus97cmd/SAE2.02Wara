@@ -28,6 +28,11 @@ async function loadFeaturedProducts() {
         // Utilisation du composant unifié dans js/components.js
         homeGrid.innerHTML += createProductCard(product, t);
     });
+
+    // Re-déclencher l'analyse AOS pour les cartes ajoutées dynamiquement
+    if (typeof AOS !== 'undefined') {
+        AOS.refresh();
+    }
 }
 
 /**

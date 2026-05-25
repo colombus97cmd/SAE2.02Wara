@@ -27,6 +27,11 @@ async function displayProducts() {
         // Utilisation du composant unifié
         productsGrid.innerHTML += createProductCard(product, t);
     });
+
+    // Re-déclencher l'analyse AOS pour les cartes ajoutées dynamiquement
+    if (typeof AOS !== 'undefined') {
+        AOS.refresh();
+    }
 }
 
 // Lancer l'affichage au chargement de la page
