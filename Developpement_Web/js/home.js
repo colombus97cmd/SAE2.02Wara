@@ -40,7 +40,7 @@ function initHeroVideoSlideshow() {
 
     // Liste des vidéos locales à faire défiler
     const videos = [
-        "assets/vid%C3%A9o%20bani%C3%A8re/Videobanni%C3%A8re1.mp4",
+        "assets/vid%C3%A9o%20bani%C3%A8re/vid.mp4",
         "assets/vid%C3%A9o%20bani%C3%A8re/vid%C3%A9obanni%C3%A8re%202.mp4",
         "assets/vid%C3%A9o%20bani%C3%A8re/vid%C3%A9obanni%C3%A8re%203.mp4"
     ];
