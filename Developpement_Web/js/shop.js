@@ -2,6 +2,8 @@
  * Gestion de la page Boutique WARA
  */
 
+let allProducts = []; // Stockage global pour filtrer sans refaire de requêtes API
+
 async function displayProducts() {
     const productsGrid = document.querySelector('.products-grid');
     if (!productsGrid) return;
@@ -9,21 +11,38 @@ async function displayProducts() {
     const lang = typeof getCurrentLanguage === 'function' ? getCurrentLanguage() : 'fr';
     const t = translations[lang];
 
-    // Afficher un message de chargement
-    productsGrid.innerHTML = `<p class="loading-msg">${t['featured_loading']}</p>`;
+    // Afficher un message de chargement si c'est la première requête
+    if (allProducts.length === 0) {
+        productsGrid.innerHTML = `<p class="loading-msg">${t['featured_loading']}</p>`;
+        allProducts = await fetchProducts();
+    }
 
-    // Récupérer les produits depuis Strapi via l'API optimisée
-    const products = await fetchProducts();
+    // Récupérer les filtres actifs
+    const activeCategories = Array.from(document.querySelectorAll('.filter-category:checked')).map(el => el.value);
+    const activeMaterials = Array.from(document.querySelectorAll('.filter-material:checked')).map(el => el.value);
 
-    if (products.length === 0) {
+    // Filtrer les produits localement (éco-conception)
+    const filteredProducts = allProducts.filter(product => {
+        const attrs = product.attributes || product;
+        
+        // Filtrer par catégorie (si aucun filtre coché, on garde tout)
+        const matchCategory = activeCategories.length === 0 || activeCategories.includes(attrs.categorie);
+        
+        // Filtrer par matière (si aucun filtre coché, on garde tout)
+        const matchMaterial = activeMaterials.length === 0 || activeMaterials.includes(attrs.matiere);
+
+        return matchCategory && matchMaterial;
+    });
+
+    if (filteredProducts.length === 0) {
         productsGrid.innerHTML = `<p class="empty-msg">${t['shop_empty']}</p>`;
         return;
     }
 
-    // Vider la grille et afficher les produits
+    // Vider la grille et afficher les produits filtrés
     productsGrid.innerHTML = ""; 
 
-    products.forEach(product => {
+    filteredProducts.forEach(product => {
         // Utilisation du composant unifié
         productsGrid.innerHTML += createProductCard(product, t);
     });
@@ -34,8 +53,19 @@ async function displayProducts() {
     }
 }
 
+// Configurer les écouteurs d'événements sur les filtres
+function initFilters() {
+    const filters = document.querySelectorAll('.filter-category, .filter-material');
+    filters.forEach(filter => {
+        filter.addEventListener('change', displayProducts);
+    });
+}
+
 // Lancer l'affichage au chargement de la page
-document.addEventListener('DOMContentLoaded', displayProducts);
+document.addEventListener('DOMContentLoaded', () => {
+    displayProducts();
+    initFilters();
+});
 
 // Recharger si la langue change
 window.addEventListener('languageChanged', displayProducts);

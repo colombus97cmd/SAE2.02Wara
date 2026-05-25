@@ -16,7 +16,7 @@ const CONFIG = {
         CONCEPT: "/api/concept"
     },
     // Optimisation Strapi 5 : Ne demander que les champs nécessaires pour les grilles
-    GRID_FIELDS: ["nom", "prix", "eco_score", "temps_biodegradation"],
+    GRID_FIELDS: ["nom", "prix", "eco_score", "temps_biodegradation", "categorie", "matiere"],
     POPULATE_IMAGE: "populate[image][fields][0]=url&populate[image][fields][1]=formats"
 };
 

@@ -66,6 +66,24 @@
         }
       }
     },
+    "categorie": {
+      "type": "enumeration",
+      "enum": [
+        "hauts",
+        "bas",
+        "accessoires"
+      ],
+      "required": true
+    },
+    "matiere": {
+      "type": "enumeration",
+      "enum": [
+        "sargasses",
+        "lin_bio",
+        "ananas"
+      ],
+      "required": true
+    },
     "etapes_tracabilite": {
       "type": "component",
       "repeatable": true,
