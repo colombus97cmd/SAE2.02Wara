@@ -6,7 +6,7 @@ const translations = {
         nav_cart: "Panier",
         
         // Hero Section
-        hero_title: "Né du fléau des Caraïbes.",
+        hero_title: "De la sargasse au vêtement.",
         hero_subtitle: "La première ligne de vêtements 100% biodégradables issue de la valorisation des sargasses en Guadeloupe.",
         hero_btn: "Découvrir la collection",
         
@@ -160,7 +160,7 @@ const translations = {
         nav_cart: "Cart",
         
         // Hero Section
-        hero_title: "Born from the Caribbean plague.",
+        hero_title: "From sargassum to clothing.",
         hero_subtitle: "The first line of 100% biodegradable clothing from the valorization of sargassum in Guadeloupe.",
         hero_btn: "Discover the collection",
         
