@@ -103,6 +103,67 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderCart();
 
+    // Gestion du bouton de validation de commande
+    const checkoutBtn = document.querySelector('[data-i18n="cart_checkout"]');
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            const user = JSON.parse(localStorage.getItem('wara_user'));
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const lang = typeof getCurrentLanguage === 'function' ? getCurrentLanguage() : 'fr';
+            
+            if (cart.length === 0) return;
+            
+            if (!user) {
+                // Utilisateur non connecté -> Redirection vers connexion.html
+                if (typeof showToast === 'function') {
+                    showToast(lang === 'fr' ? "Veuillez vous connecter pour valider votre commande !" : "Please log in to validate your order!", "info");
+                } else {
+                    alert(lang === 'fr' ? "Veuillez vous connecter pour valider votre commande !" : "Please log in to validate your order!");
+                }
+                setTimeout(() => {
+                    window.location.href = "connexion.html";
+                }, 1500);
+                return;
+            }
+            
+            // Calculer le total
+            let total = 0;
+            cart.forEach(item => {
+                total += item.prix * item.quantite;
+            });
+            
+            // Simuler l'enregistrement de la commande
+            const orders = JSON.parse(localStorage.getItem('wara_orders')) || [];
+            const newOrder = {
+                id: `WR-2026-${Math.floor(1000 + Math.random() * 9000)}`,
+                userId: user.id,
+                date: new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }),
+                itemsCount: cart.length,
+                total: total,
+                status: lang === 'fr' ? 'En cours de préparation' : 'Preparing'
+            };
+            orders.push(newOrder);
+            localStorage.setItem('wara_orders', JSON.stringify(orders));
+            
+            // Vider le panier
+            localStorage.removeItem('cart');
+            
+            // Créditer des éco-points à l'utilisateur (ex: 1 point par euro)
+            user.ecoPoints = (user.ecoPoints || 0) + Math.floor(total);
+            localStorage.setItem('wara_user', JSON.stringify(user));
+            
+            if (typeof showToast === 'function') {
+                showToast(lang === 'fr' ? "Commande validée avec succès ! Merci de protéger nos plages. 🌴" : "Order validated successfully! Thank you for protecting our beaches. 🌴", "success");
+            }
+            
+            setTimeout(() => {
+                window.location.href = "connexion.html";
+            }, 1800);
+        });
+    }
+
     // Recharger si la langue change
     window.addEventListener('languageChanged', renderCart);
 });

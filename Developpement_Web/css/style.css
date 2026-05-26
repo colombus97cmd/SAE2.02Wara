@@ -1006,6 +1006,229 @@ footer p { margin-bottom: var(--spacing-sm); }
     50% { opacity: 1; transform: scale(1.02); }
 }
 
+/* =========================================
+   Authentification & Espace Client (Compte)
+   ========================================= */
+.auth-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 250px);
+    padding: var(--spacing-xl) var(--spacing-lg);
+    background-color: var(--color-background);
+}
+
+.auth-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(155, 126, 75, 0.25); /* Sargasse Gold transparent */
+    padding: var(--spacing-xl);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.auth-card h2 {
+    font-family: var(--font-title);
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-accent);
+}
+
+.form-input {
+    padding: 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(27, 48, 34, 0.1);
+}
+
+.auth-switch-text {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+    font-size: 0.95rem;
+}
+
+.auth-switch-link {
+    color: var(--color-secondary);
+    text-decoration: underline;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    padding: 0;
+    margin-left: 5px;
+    transition: color 0.3s ease;
+}
+
+.auth-switch-link:hover {
+    color: var(--color-accent);
+}
+
+/* Dashboard CSS */
+.profile-dashboard {
+    width: 100%;
+    max-width: 800px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: var(--spacing-xl);
+    margin: 0 auto;
+    border: 1px solid var(--color-border);
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.profile-welcome-box h2 {
+    font-family: var(--font-title);
+    color: var(--color-primary);
+    font-size: 2.2rem;
+    margin: 0;
+}
+
+.profile-welcome-box p {
+    color: var(--color-accent);
+    margin-top: 5px;
+}
+
+.profile-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.profile-card {
+    background: var(--color-background);
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    border: 1px solid rgba(74, 93, 69, 0.15); /* Leaf Green */
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.profile-card.points {
+    border-color: rgba(155, 126, 75, 0.25); /* Sargasse Gold */
+}
+
+.profile-card h3 {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--color-accent);
+    margin: 0;
+}
+
+.profile-card .value {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 5px 0 0 0;
+}
+
+.orders-section h3 {
+    font-family: var(--font-title);
+    color: var(--color-primary);
+    font-size: 1.6rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.order-item {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--spacing-md);
+    background-color: var(--color-background);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.order-id {
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.order-date {
+    color: var(--color-accent);
+    font-size: 0.9rem;
+}
+
+.order-total {
+    font-weight: 700;
+}
+
+.order-status {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.no-orders {
+    text-align: center;
+    color: var(--color-accent);
+    padding: var(--spacing-xl);
+    border: 1px dashed var(--color-border);
+    border-radius: 8px;
+}
+
+@media (max-width: 576px) {
+    .profile-meta {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 
 

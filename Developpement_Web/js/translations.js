@@ -151,7 +151,26 @@ const translations = {
         
         // Footer
         footer_rights: "© 2026 WARA - Projet SAE 2.02 BUT MMI. Tous droits réservés.",
-        footer_cert: "Certifié GOTS & OEKO-TEX | Made in Guadeloupe"
+        footer_cert: "Certifié GOTS & OEKO-TEX | Made in Guadeloupe",
+        
+        // Account / Connexion
+        nav_account: "Compte",
+        auth_login_title: "Connexion à votre espace WARA",
+        auth_register_title: "Rejoindre l'économie régénérative",
+        auth_email: "Adresse e-mail",
+        auth_password: "Mot de passe",
+        auth_username: "Nom complet",
+        auth_btn_login: "Se connecter",
+        auth_btn_register: "Créer mon compte",
+        auth_switch_to_register: "Pas encore de compte ? S'inscrire",
+        auth_switch_to_login: "Déjà inscrit ? Se connecter",
+        profile_title: "Votre Espace WARA",
+        profile_welcome: "Bienvenue,",
+        profile_eco_badge: "Statut : Protecteur du littoral 🌴",
+        profile_eco_points: "Éco-Points cumulés : 150 points",
+        profile_logout: "Se déconnecter",
+        profile_no_orders: "Aucune commande en cours.",
+        profile_recent_orders: "Historique de vos commandes"
     },
     en: {
         // Navigation
@@ -305,6 +324,25 @@ const translations = {
         
         // Footer
         footer_rights: "© 2026 WARA - SAE 2.02 Project BUT MMI. All rights reserved.",
-        footer_cert: "GOTS & OEKO-TEX Certified | Made in Guadeloupe"
+        footer_cert: "GOTS & OEKO-TEX Certified | Made in Guadeloupe",
+        
+        // Account / Connexion
+        nav_account: "Account",
+        auth_login_title: "Log In to Your WARA Space",
+        auth_register_title: "Join the Regenerative Economy",
+        auth_email: "Email Address",
+        auth_password: "Password",
+        auth_username: "Full Name",
+        auth_btn_login: "Sign In",
+        auth_btn_register: "Create My Account",
+        auth_switch_to_register: "Don't have an account? Sign Up",
+        auth_switch_to_login: "Already have an account? Log In",
+        profile_title: "Your WARA Space",
+        profile_welcome: "Welcome,",
+        profile_eco_badge: "Status: Coastline Protector 🌴",
+        profile_eco_points: "Accumulated Eco-Points: 150 points",
+        profile_logout: "Sign Out",
+        profile_no_orders: "No orders in progress.",
+        profile_recent_orders: "Your Order History"
     }
 };

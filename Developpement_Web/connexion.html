@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Connectez-vous ou créez votre compte sur WARA pour gérer votre espace et suivre l'impact écologique de vos vêtements en sargasses.">
+    <title>Mon Compte | WARA</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- AOS Library for scroll animations -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+    <!-- Preloader WARA (Masque le chargement des pages) -->
+    <div id="preloader" class="preloader">
+        <!-- L'eau de mer (bloc bleu turquoise) qui descend -->
+        <div class="sea-water-sweep">
+            <svg class="sweep-wave" viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path d="M0,0 C320,120 420,120 720,0 C1020,-120 1120,-120 1440,0 L1440,120 L0,120 Z" fill="#006D77"/>
+            </svg>
+        </div>
+
+        <!-- Pluie de sargasses (algues vectorielles tombantes) -->
+        <div class="sargasse-rain">
+            <!-- Algue 1 -->
+            <svg class="falling-algae algae-1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50,10 C52,25 48,40 50,60 C52,70 55,80 50,95 C45,80 48,70 50,60 C52,40 48,25 50,10" fill="none" stroke="#9B7E4B" stroke-width="4" stroke-linecap="round"/>
+                <path d="M50,20 Q30,10 35,25 Q40,30 50,28" fill="#4A5D45"/>
+                <path d="M50,40 Q70,30 65,45 Q55,50 50,48" fill="#4A5D45"/>
+                <path d="M50,60 Q30,50 35,65 Q40,70 50,68" fill="#4A5D45"/>
+                <circle cx="35" cy="18" r="3" fill="#9B7E4B"/>
+                <circle cx="65" cy="38" r="3" fill="#9B7E4B"/>
+            </svg>
+            <!-- Algue 2 -->
+            <svg class="falling-algae algae-2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50,10 C52,25 48,40 50,60 C52,70 55,80 50,95 C45,80 48,70 50,60 C52,40 48,25 50,10" fill="none" stroke="#C27858" stroke-width="3" stroke-linecap="round"/>
+                <path d="M50,30 Q35,20 40,35 Q45,40 50,38" fill="#4A5D45"/>
+                <circle cx="38" cy="28" r="2.5" fill="#C27858"/>
+            </svg>
+            <!-- Algue 3 -->
+            <svg class="falling-algae algae-3" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50,10 C52,25 48,40 50,60 C52,70 55,80 50,95 C45,80 48,70 50,60 C52,40 48,25 50,10" fill="none" stroke="#9B7E4B" stroke-width="4.5" stroke-linecap="round"/>
+                <path d="M50,25 Q68,15 62,32 Q56,38 50,35" fill="#4A5D45"/>
+                <path d="M50,42 Q32,32 38,48 Q44,52 50,50" fill="#4A5D45"/>
+                <circle cx="60" cy="23" r="3.5" fill="#9B7E4B"/>
+            </svg>
+            <!-- Algue 4 -->
+            <svg class="falling-algae algae-4" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50,10 C52,25 48,40 50,60 C52,70 55,80 50,95 C45,80 48,70 50,60 C52,40 48,25 50,10" fill="none" stroke="#C27858" stroke-width="3.5" stroke-linecap="round"/>
+                <circle cx="36" cy="24" r="3" fill="#C27858"/>
+            </svg>
+            <!-- Algue 5 -->
+            <svg class="falling-algae algae-5" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50,10 C52,25 48,40 50,60 C52,70 55,80 50,95 C45,80 48,70 50,60 C52,40 48,25 50,10" fill="none" stroke="#9B7E4B" stroke-width="4" stroke-linecap="round"/>
+                <path d="M50,15 Q65,5 60,20 Q55,25 50,23" fill="#4A5D45"/>
+                <circle cx="58" cy="13" r="3" fill="#9B7E4B"/>
+            </svg>
+            <!-- Algue 6 -->
+            <svg class="falling-algae algae-6" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50,10 C52,25 48,40 50,60 C52,70 55,80 50,95 C45,80 48,70 50,60 C52,40 48,25 50,10" fill="none" stroke="#C27858" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="38" cy="28" r="2.5" fill="#C27858"/>
+            </svg>
+            <!-- Algue 7 -->
+            <svg class="falling-algae algae-7" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50,10 C52,25 48,40 50,60 C52,70 55,80 50,95 C45,80 48,70 50,60 C52,40 48,25 50,10" fill="none" stroke="#9B7E4B" stroke-width="4.5" stroke-linecap="round"/>
+                <circle cx="60" cy="23" r="3.5" fill="#9B7E4B"/>
+            </svg>
+            <!-- Algue 8 -->
+            <svg class="falling-algae algae-8" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50,10 C52,25 48,40 50,60 C52,70 55,80 50,95 C45,80 48,70 50,60 C52,40 48,25 50,10" fill="none" stroke="#C27858" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="56" cy="23" r="2.5" fill="#C27858"/>
+            </svg>
+        </div>
+
+        <div class="loader-text" data-i18n="nav_account">Compte</div>
+    </div>
+
+    <a href="#main-content" class="sr-only">Passer au contenu principal</a>
+    <header>
+        <nav class="navbar" role="navigation" aria-label="Navigation principale">
+            <div class="logo"><a href="index.html">WARA</a></div>
+            <ul class="nav-links">
+                <li><a href="concept.html" data-i18n="nav_concept">Le Concept</a></li>
+                <li><a href="boutique.html" data-i18n="nav_shop">Boutique</a></li>
+                <li><a href="panier.html" data-i18n="nav_cart">Panier</a></li>
+                <li><a href="connexion.html" class="active" data-i18n="nav_account">Compte</a></li>
+                <li class="lang-switcher">
+                    <button class="lang-switch" data-lang="fr">FR</button>
+                    <button class="lang-switch" data-lang="en">EN</button>
+                </li>
+            </ul>
+            <button class="burger-menu" aria-label="Ouvrir le menu de navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="auth-section">
+            <!-- 1. Formulaire de Connexion & Inscription -->
+            <div class="auth-card" id="auth-card" data-aos="zoom-in">
+                <!-- État 1 : Connexion (Affiche par défaut) -->
+                <div id="login-state">
+                    <h2 data-i18n="auth_login_title">Connexion à votre espace WARA</h2>
+                    <form class="auth-form" id="login-form">
+                        <div class="form-group">
+                            <label for="login-email" data-i18n="auth_email">Adresse e-mail</label>
+                            <input type="email" id="login-email" class="form-input" required placeholder="nom@exemple.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password" data-i18n="auth_password">Mot de passe</label>
+                            <input type="password" id="login-password" class="form-input" required minlength="6">
+                        </div>
+                        <button type="submit" class="btn-primary full-width" data-i18n="auth_btn_login">Se connecter</button>
+                    </form>
+                    <p class="auth-switch-text">
+                        <span data-i18n="auth_switch_to_register">Pas encore de compte ? S'inscrire</span>
+                        <button class="auth-switch-link" id="switch-to-register-btn" type="button">S'inscrire</button>
+                    </p>
+                </div>
+
+                <!-- État 2 : Inscription (Masqué par défaut) -->
+                <div id="register-state" style="display: none;">
+                    <h2 data-i18n="auth_register_title">Rejoindre l'économie régénérative</h2>
+                    <form class="auth-form" id="register-form">
+                        <div class="form-group">
+                            <label for="register-username" data-i18n="auth_username">Nom complet</label>
+                            <input type="text" id="register-username" class="form-input" required placeholder="Jean Dupont">
+                        </div>
+                        <div class="form-group">
+                            <label for="register-email" data-i18n="auth_email">Adresse e-mail</label>
+                            <input type="email" id="register-email" class="form-input" required placeholder="jean.dupont@exemple.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="register-password" data-i18n="auth_password">Mot de passe</label>
+                            <input type="password" id="register-password" class="form-input" required minlength="6">
+                        </div>
+                        <button type="submit" class="btn-primary full-width" data-i18n="auth_btn_register">Créer mon compte</button>
+                    </form>
+                    <p class="auth-switch-text">
+                        <span data-i18n="auth_switch_to_login">Déjà inscrit ? Se connecter</span>
+                        <button class="auth-switch-link" id="switch-to-login-btn" type="button">Se connecter</button>
+                    </p>
+                </div>
+            </div>
+
+            <!-- 2. Espace Client (Dashboard) - Masqué par défaut -->
+            <div class="profile-dashboard" id="profile-dashboard" style="display: none;" data-aos="fade-up">
+                <div class="profile-header">
+                    <div class="profile-welcome-box">
+                        <h2><span data-i18n="profile_welcome">Bienvenue,</span> <span id="user-display-name">Client WARA</span> 🌊</h2>
+                        <p id="user-display-email">client@wara.gp</p>
+                    </div>
+                    <button class="btn-secondary" id="logout-btn" data-i18n="profile_logout">Se déconnecter</button>
+                </div>
+
+                <div class="profile-meta">
+                    <div class="profile-card">
+                        <h3 data-i18n="profile_eco_badge">Statut : Protecteur du littoral 🌴</h3>
+                        <p class="value">Guadeloupe Protector</p>
+                    </div>
+                    <div class="profile-card points">
+                        <h3 data-i18n="profile_eco_points">Éco-Points cumulés</h3>
+                        <p class="value" id="user-eco-points">150 pts</p>
+                    </div>
+                </div>
+
+                <div class="orders-section">
+                    <h3 data-i18n="profile_recent_orders">Historique de vos commandes</h3>
+                    <div id="orders-container">
+                        <!-- Les commandes réelles ou simulées seront injectées ici -->
+                        <div class="no-orders" id="no-orders-box">
+                            <p data-i18n="profile_no_orders">Aucune commande en cours.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p data-i18n="footer_rights">&copy; 2026 WARA - Projet SAE 2.02 BUT MMI. Tous droits réservés.</p>
+        <p data-i18n="footer_cert">Certifié GOTS &amp; OEKO-TEX | Made in Guadeloupe</p>
+        <nav class="footer-links" aria-label="Liens légaux">
+            <a href="mentions-legales.html#mentions">Mentions légales</a>
+            <a href="mentions-legales.html#cgv">CGV</a>
+            <a href="mentions-legales.html#cgu">CGU</a>
+            <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+        </nav>
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/api.js"></script>
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
