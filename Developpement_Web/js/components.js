@@ -10,7 +10,7 @@
  */
 function createProductCard(product, t) {
     const attrs = product.attributes || product; // Gère Strapi 4 et 5
-    const id = product.id;
+    const id = product.documentId || product.id; // Utilise documentId pour Strapi 5, id pour Strapi 4
     
     // Optimisation Image : Utiliser le format 'small' ou 'thumbnail' si disponible, sinon l'original
     let imageUrl = 'https://via.placeholder.com/300x400?text=WARA';
