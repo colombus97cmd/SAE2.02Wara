@@ -262,6 +262,16 @@ h1 { font-weight: 700; }
 /* =========================================
    Concept : Storytelling & Impact
    ========================================= */
+.concept-section {
+    text-align: center;
+    margin: var(--spacing-xl) auto;
+}
+
+.concept-section p {
+    max-width: 700px;
+    margin: 0 auto var(--spacing-md);
+}
+
 .storytelling { padding: var(--spacing-xl) 0; text-align: center; }
 .lead { font-size: 1.5rem; max-width: 900px; margin: 0 auto 3rem; color: var(--color-accent); font-family: var(--font-title); font-style: italic; }
 
