@@ -284,6 +284,10 @@ h1 { font-weight: 700; }
     width: 100vw;
 }
 
+.certifications h2 {
+    color: var(--color-white);
+}
+
 .certif-logos {
     display: flex;
     justify-content: center;
