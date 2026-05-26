@@ -244,7 +244,7 @@ h1 { font-weight: 700; }
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--spacing-lg);
-    margin: var(--spacing-xl) 0;
+    margin: var(--spacing-xl) auto;
 }
 
 .engagement-card {
