@@ -29,6 +29,16 @@ Le dictionnaire de données liste l'ensemble des propriétés stockées pour cha
 | **image_banniere** | Média | Image de couverture de la page | - |
 | **slogan** | Chaîne | Slogan de la marque WARA | Localisé |
 
+### Table : Commande (Order)
+| Champ | Type | Description | Contraintes |
+| :--- | :--- | :--- | :--- |
+| **id** | Entier | Identifiant unique de la commande | PK, Auto-incrément |
+| **numero_commande** | Chaîne | Numéro de commande unique (ex: WR-2026-9874) | Requis, Unique |
+| **date** | Date / Chaîne | Date de passation de la commande | Requis |
+| **total** | Décimal | Montant total TTC de la commande | Requis |
+| **status** | Enum | État de la commande (En préparation, Expédié, Livré) | Requis |
+| **user_id** | Entier | Identifiant de l'utilisateur ayant passé la commande | FK (Relation N:1 vers la table User) |
+
 ### Composant : Etape de Traçabilité
 | Champ | Type | Description | Contraintes |
 | :--- | :--- | :--- | :--- |
@@ -48,6 +58,9 @@ erDiagram
     PRODUIT ||--o{ ETAPE_TRACABILITE : "possède"
     PRODUIT ||--|| MEDIA : "est illustré par"
     CONCEPT ||--|| MEDIA : "utilise"
+    USER ||--o{ COMMANDE : "passe"
+    COMMANDE ||--o{ LIGNE_COMMANDE : "contient"
+    PRODUIT ||--o{ LIGNE_COMMANDE : "concerne"
 
     PRODUIT {
         string nom
@@ -69,6 +82,26 @@ erDiagram
         string slogan
     }
 
+    COMMANDE {
+        string numero_commande
+        string date
+        decimal total
+        string status
+    }
+
+    USER {
+        string username
+        string email
+        string password
+        integer eco_points
+    }
+
+    LIGNE_COMMANDE {
+        integer quantite
+        string taille
+        decimal prix_unitaire
+    }
+
     MEDIA {
         string url
         string mime
@@ -86,6 +119,9 @@ Le MLD traduit les relations en structure de tables prêtes pour une base relati
 - **ETAPE_TRACABILITE** (<u>id_etape</u>, titre, description, icone, #id_produit)
 - **CONCEPT** (<u>id_concept</u>, titre, notre_histoire, slogan, #id_media_banniere)
 - **MEDIA** (<u>id_media</u>, url, mime, size, hash, extension)
+- **USER** (<u>id_user</u>, username, email, password, eco_points)
+- **COMMANDE** (<u>id_commande</u>, numero_commande, date, total, status, #id_user)
+- **LIGNE_COMMANDE** (<u>id_ligne</u>, quantite, taille, prix_unitaire, #id_commande, #id_produit)
 
 ---
 
@@ -130,5 +166,34 @@ CREATE TABLE concept_page (
     notre_histoire TEXT,
     slogan VARCHAR(255),
     image_banniere_id INTEGER REFERENCES media(id) ON DELETE SET NULL
+);
+
+-- Création de la table User (Espace client)
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    eco_points INTEGER DEFAULT 0
+);
+
+-- Création de la table Commande (Order)
+CREATE TABLE orders (
+    id SERIAL PRIMARY KEY,
+    numero_commande VARCHAR(50) NOT NULL UNIQUE,
+    date VARCHAR(100) NOT NULL,
+    total DECIMAL(10, 2) NOT NULL,
+    status VARCHAR(50) NOT NULL,
+    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- Création de la table Ligne de Commande (Items de la commande)
+CREATE TABLE order_items (
+    id SERIAL PRIMARY KEY,
+    quantite INTEGER NOT NULL,
+    taille VARCHAR(10) NOT NULL,
+    prix_unitaire DECIMAL(10, 2) NOT NULL,
+    order_id INTEGER REFERENCES orders(id) ON DELETE CASCADE,
+    product_id INTEGER REFERENCES product(id) ON DELETE SET NULL
 );
 ```
