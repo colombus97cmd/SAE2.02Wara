@@ -13,7 +13,24 @@ async function loadProductDetail() {
 
     // 2. Récupérer les données depuis Strapi
     const product = await fetchProductById(productId);
-    if (!product) return;
+    if (!product) {
+        document.querySelector('main').innerHTML = `
+            <div class="container" style="text-align: center; padding: var(--spacing-xl) 0; max-width: 600px; margin: 0 auto;">
+                <h2 style="margin-bottom: 1rem; color: var(--color-accent);">⚠️ Erreur de chargement</h2>
+                <p>Impossible de récupérer les détails de ce vêtement depuis le CMS Strapi (ID: ${productId}).</p>
+                <div style="background: #FFF5F5; border: 1px solid #FEB2B2; padding: 1.5rem; border-radius: 8px; text-align: left; margin: 20px 0; font-size: 0.9rem; line-height: 1.5; color: #9B2C2C;">
+                    <strong>Vérifications recommandées :</strong>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Vérifie que la permission <strong>findOne</strong> est bien cochée pour la collection <strong>Product</strong> dans le rôle <strong>Public</strong> (Settings > Roles > Public > Product dans Strapi).</li>
+                        <li>Vérifie que le produit avec l'ID ${productId} est bien <strong>publié</strong> (Published) et non en brouillon.</li>
+                        <li>Vérifie que l'URL Render configurée dans ton <code>js/config.js</code> est correcte.</li>
+                    </ul>
+                </div>
+                <a href="boutique.html" class="btn-primary" style="margin-top: 10px;">Retour à la boutique</a>
+            </div>
+        `;
+        return;
+    }
 
     // Strapi v5: champs directement sur data, v4: dans data.attributes
     const attrs = product.attributes || product;
