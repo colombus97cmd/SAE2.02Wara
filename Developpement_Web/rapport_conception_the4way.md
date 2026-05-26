@@ -30,6 +30,7 @@ Le projet est conçu comme une application web multipage (MPA) optimisée, sépa
 | [produit.html](file:///c:/Users/david/Documents/SAE2.02/Developpement_Web/produit.html) | Fiche détaillée d'un vêtement spécifique. | Sélecteur de tailles, bouton d'ajout au panier, **frise chronologique de biodégradation interactive** et carte de traçabilité "De la plage au vêtement". |
 | [concept.html](file:///c:/Users/david/Documents/SAE2.02/Developpement_Web/concept.html) | Récit de la marque et processus de transformation. | Bannière dynamique et texte d'histoire chargés depuis Strapi, infographie vectorielle des étapes de transformation (Collecte -> Confection). |
 | [panier.html](file:///c:/Users/david/Documents/SAE2.02/Developpement_Web/panier.html) | Tunnel d'achat simplifié. | Liste récapitulative des articles avec calcul dynamique des taxes, frais de livraison locaux et totaux. |
+| [connexion.html](file:///c:/Users/david/Documents/SAE2.02/Developpement_Web/connexion.html) | Formulaires d'authentification et espace client. | Connexion/Inscription par e-mail ou via boutons d'authentification sociale (Google & Apple) simulés par popups de message-passing, tableau de bord client avec éco-points et historique d'achats. |
 | [mentions-legales.html](file:///c:/Users/david/Documents/SAE2.02/Developpement_Web/mentions-legales.html) | Conformité juridique (Loi AGEC, décret 2025-957). | Mentions légales réglementant les allégations environnementales et la traçabilité. |
 
 ### 🎨 B. Les Fichiers CSS (Style et Animations)
@@ -178,6 +179,26 @@ Au cours du cycle de développement, l'équipe technique a fait face à plusieur
 ### 5️⃣ Problèmes de centrage sur Desktop
 *   **Problème** : Les grilles d'engagement et de storytelling d'accueil étaient parfaitement adaptées au mobile mais s'alignaient maladroitement à gauche ou s'étiraient trop sur grand écran.
 *   **Résolution** : Ajustement des règles CSS Flexbox et CSS Grid avec des propriétés `margin: 0 auto;` et `justify-content: center;` couplées à une largeur maximale (`max-width: 1200px`) pour garantir un centrage géométrique parfait sur tous les supports.
+
+### 6️⃣ Intégration de l'authentification et de l'espace client (OAuth simulé)
+*   **Problème** : Les clients devaient pouvoir s'authentifier pour valider leurs commandes afin de comptabiliser leurs éco-points et conserver leur historique de commandes.
+*   **Résolution** :
+    *   Création de `connexion.html` et de `js/auth.js` pour gérer l'enregistrement et l'authentification avec Strapi 5 (avec bascule sur `localStorage` de secours si l'API est hors ligne).
+    *   Simulations d'authentification sociale (Google & Apple) réalistes via l'ouverture de popups synchronisées par échange de messages sécurisés (`window.postMessage`) pour connecter instantanément l'utilisateur.
+
+### 7️⃣ Suppression directe de produits du panier
+*   **Problème** : L'utilisateur ne pouvait pas supprimer directement un vêtement du panier (il devait baisser la quantité à 0), ce qui rendait l'expérience utilisateur fastidieuse.
+*   **Résolution** : Ajout d'une colonne de suppression directe avec une icône de corbeille `🗑` dans le tableau du panier reliée à une mise à jour instantanée des totaux et de l'impact écologique dans `js/cart.js`.
+
+### 8️⃣ Déficit de contraste dans la section Certifications
+*   **Problème** : Le titre "Nos Certifications" sur la page concept était difficilement lisible car sa couleur sombre manquait de contraste sur le bandeau vert foncé.
+*   **Résolution** : Modification de la règle CSS pour forcer le titre `.certifications h2` en blanc (`var(--color-white)`), améliorant grandement la lisibilité (normes d'accessibilité WCAG AAA).
+
+### 9️⃣ Perte de la sélection de langue anglaise lors de la navigation
+*   **Problème** : Lorsque le site était ouvert localement (via le protocole `file://`), le `localStorage` n'était pas partagé entre les fichiers HTML sur certains navigateurs, réinitialisant la langue en français à chaque clic de lien. De plus, la boutique ne traduisait pas les vêtements car elle utilisait un cache local.
+*   **Résolution** :
+    *   Implémentation d'une propagation dynamique de la langue active dans tous les liens de navigation via le paramètre d'URL `?lang=...` grâce à une fonction globale `updateLinksWithLanguage()`.
+    *   Réinitialisation automatique du cache de produits boutique (`allProducts = []`) lors du signal de changement de langue (`languageChanged`) pour forcer une récupération en anglais depuis l'API Strapi.
 
 ---
 
