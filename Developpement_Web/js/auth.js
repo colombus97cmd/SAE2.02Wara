@@ -266,4 +266,101 @@ document.addEventListener('DOMContentLoaded', () => {
             noOrdersBox.style.display = 'block';
         }
     }
+
+    // Gérer la connexion sociale (Google / Apple)
+    function handleSocialLogin(provider) {
+        const lang = typeof getCurrentLanguage === 'function' ? getCurrentLanguage() : 'fr';
+        showToast(lang === 'fr' ? `Connexion via ${provider} en cours...` : `Logging in with ${provider}...`, "info");
+        
+        // Ouvrir une petite fenêtre popup de connexion
+        const width = 450;
+        const height = 550;
+        const left = (screen.width / 2) - (width / 2);
+        const top = (screen.height / 2) - (height / 2);
+        
+        const popup = window.open("", `WARA - Connexion ${provider}`, `width=${width},height=${height},top=${top},left=${left}`);
+        
+        if (popup) {
+            const providerTitle = provider.charAt(0).toUpperCase() + provider.slice(1);
+            const title = lang === 'fr' ? `Continuer avec ${providerTitle}` : `Continue with ${providerTitle}`;
+            const subtitle = lang === 'fr' ? "Sélectionnez votre compte pour vous connecter à WARA" : "Select your account to log in to WARA";
+            const userEmail = provider === 'google' ? "david.colombo@gmail.com" : "d.colombo@icloud.com";
+            const name = "David Colombo";
+            
+            popup.document.write(`
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>${providerTitle} Login</title>
+                    <meta charset="utf-8">
+                    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+                    <style>
+                        body { font-family: 'Outfit', sans-serif; background-color: #f9f9f9; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; padding: 20px; box-sizing: border-box; text-align: center; }
+                        .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); max-width: 350px; width: 100%; border: 1px solid #eee; }
+                        h2 { font-size: 1.4rem; color: #333; margin: 10px 0 5px; }
+                        p { font-size: 0.9rem; color: #666; margin-bottom: 25px; }
+                        .account-item { display: flex; align-items: center; gap: 15px; padding: 12px; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; transition: all 0.2s; text-align: left; background: none; width: 100%; margin-bottom: 15px; font-family: inherit; }
+                        .account-item:hover { border-color: #1B3022; background-color: #f4f6f4; }
+                        .avatar { width: 40px; height: 40px; border-radius: 50%; background-color: #1B3022; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem; }
+                        .info { display: flex; flex-direction: column; }
+                        .name { font-weight: 600; color: #111; font-size: 0.95rem; }
+                        .email { color: #666; font-size: 0.85rem; }
+                    </style>
+                </head>
+                <body>
+                    <div class="card">
+                        <h2>${title}</h2>
+                        <p>${subtitle}</p>
+                        <button class="account-item" onclick="login()">
+                            <div class="avatar">${name.charAt(0)}</div>
+                            <div class="info">
+                                <span class="name">${name}</span>
+                                <span class="email">${userEmail}</span>
+                            </div>
+                        </button>
+                    </div>
+                    <script>
+                        function login() {
+                            window.opener.postMessage({
+                                type: 'WARA_SOCIAL_LOGIN_SUCCESS',
+                                provider: '${provider}',
+                                user: {
+                                    id: 888,
+                                    username: '${name}',
+                                    email: '${userEmail}',
+                                    ecoPoints: 240
+                                }
+                            }, '*');
+                            window.close();
+                        }
+                    </script>
+                </body>
+                </html>
+            `);
+            popup.document.close();
+        }
+    }
+
+    // Écouter les messages de la popup d'authentification sociale
+    window.addEventListener('message', (event) => {
+        if (event.data && event.data.type === 'WARA_SOCIAL_LOGIN_SUCCESS') {
+            const { user, provider } = event.data;
+            saveUserSession(user, `mock-social-jwt-${provider}`);
+            seedInitialOrder(user.id);
+            const lang = typeof getCurrentLanguage === 'function' ? getCurrentLanguage() : 'fr';
+            showToast(lang === 'fr' ? `Connecté avec succès via ${provider.charAt(0).toUpperCase() + provider.slice(1)} ! 🌴` : `Connected successfully via ${provider.charAt(0).toUpperCase() + provider.slice(1)}! 🌴`, "success");
+            renderDashboard(user);
+        }
+    });
+
+    // Ajouter les écouteurs sur les boutons réseaux sociaux
+    const googleLoginBtn = document.getElementById('google-login-btn');
+    const appleLoginBtn = document.getElementById('apple-login-btn');
+    const googleRegisterBtn = document.getElementById('google-register-btn');
+    const appleRegisterBtn = document.getElementById('apple-register-btn');
+
+    if (googleLoginBtn) googleLoginBtn.addEventListener('click', () => handleSocialLogin('google'));
+    if (appleLoginBtn) appleLoginBtn.addEventListener('click', () => handleSocialLogin('apple'));
+    if (googleRegisterBtn) googleRegisterBtn.addEventListener('click', () => handleSocialLogin('google'));
+    if (appleRegisterBtn) appleRegisterBtn.addEventListener('click', () => handleSocialLogin('apple'));
 });

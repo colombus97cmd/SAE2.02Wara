@@ -155,6 +155,7 @@ const translations = {
         
         // Account / Connexion
         nav_account: "Compte",
+        auth_or: "ou",
         auth_login_title: "Connexion à votre espace WARA",
         auth_register_title: "Rejoindre l'économie régénérative",
         auth_email: "Adresse e-mail",
@@ -328,6 +329,7 @@ const translations = {
         
         // Account / Connexion
         nav_account: "Account",
+        auth_or: "or",
         auth_login_title: "Log In to Your WARA Space",
         auth_register_title: "Join the Regenerative Economy",
         auth_email: "Email Address",
