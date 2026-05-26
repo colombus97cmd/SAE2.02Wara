@@ -12,8 +12,18 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Preloader WARA (Masque le chargement de l'API) -->
+    <!-- Preloader WARA (Masque le chargement des pages) -->
     <div id="preloader" class="preloader">
+        <!-- L'eau de mer (bloc bleu turquoise) qui descend -->
+        <div class="sea-water-sweep">
+            <svg class="sweep-wave" viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path fill="#20B2AA" d="M0,0 L1440,0 L1440,80 C1080,140 720,20 360,80 C180,110 0,50 0,80 Z"></path>
+                <!-- Écume blanche toon -->
+                <path fill="#FFFFFF" opacity="0.9" d="M0,70 C180,40 360,100 720,70 C1080,40 1260,90 1440,70 L1440,82 C1260,102 1080,52 720,82 C360,112 180,52 0,82 Z"></path>
+            </svg>
+        </div>
+
+        <!-- Les sargasses qui coulent et atterrissent sur le sable -->
         <div class="sargasse-rain">
             <!-- Algue 1 -->
             <svg class="falling-algae algae-1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -52,7 +62,7 @@
                 <circle cx="56" cy="33" r="2.5" fill="#C27858"/>
                 <circle cx="44" cy="53" r="2.5" fill="#C27858"/>
             </svg>
-            <!-- Algue 5 (Allongée / Stretched) -->
+            <!-- Algue 5 (Allongée) -->
             <svg class="falling-algae algae-5" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M50,10 C52,25 48,40 50,60 C52,70 55,80 50,95 C45,80 48,70 50,60 C52,40 48,25 50,10" fill="none" stroke="#9B7E4B" stroke-width="4" stroke-linecap="round"/>
                 <path d="M50,30 Q65,20 60,35 Q55,40 50,38" fill="#4A5D45"/>
@@ -71,7 +81,7 @@
                 <circle cx="38" cy="33" r="2.5" fill="#C27858"/>
                 <circle cx="58" cy="53" r="2.5" fill="#C27858"/>
             </svg>
-            <!-- Algue 7 (Très longue / Stretched) -->
+            <!-- Algue 7 (Très longue) -->
             <svg class="falling-algae algae-7" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M50,10 C52,25 48,40 50,60 C52,70 55,80 50,95 C45,80 48,70 50,60 C52,40 48,25 50,10" fill="none" stroke="#9B7E4B" stroke-width="4.5" stroke-linecap="round"/>
                 <path d="M50,25 Q68,15 62,32 Q56,38 50,35" fill="#4A5D45"/>
@@ -86,21 +96,6 @@
                 <path d="M50,35 Q62,25 58,38 Q54,42 50,40" fill="#4A5D45"/>
                 <path d="M50,55 Q38,45 42,58 Q46,62 50,60" fill="#4A5D45"/>
                 <circle cx="56" cy="33" r="2.5" fill="#C27858"/>
-            </svg>
-        </div>
-
-        <!-- Vagues de mer animées (effet toon) -->
-        <div class="waves-container">
-            <svg class="wave wave-back" viewBox="0 0 1440 320" preserveAspectRatio="none">
-                <path fill="#52B2BF" opacity="0.4" d="M0,160 C320,300 640,100 960,220 C1280,340 1440,200 1440,200 L1440,320 L0,320 Z"></path>
-            </svg>
-            <svg class="wave wave-mid" viewBox="0 0 1440 320" preserveAspectRatio="none">
-                <path fill="#008080" opacity="0.55" d="M0,220 C480,120 960,300 1440,180 L1440,320 L0,320 Z"></path>
-            </svg>
-            <svg class="wave wave-front" viewBox="0 0 1440 320" preserveAspectRatio="none">
-                <path fill="#20B2AA" opacity="0.75" d="M0,260 C240,200 480,280 720,240 C960,200 1200,280 1440,220 L1440,320 L0,320 Z"></path>
-                <!-- Écume blanche toon -->
-                <path fill="#FFFFFF" opacity="0.95" d="M0,260 C240,200 480,280 720,240 C960,200 1200,280 1440,220 L1440,232 C1200,292 960,212 720,252 C480,292 240,212 0,272 Z"></path>
             </svg>
         </div>
 

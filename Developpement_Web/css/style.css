@@ -897,6 +897,36 @@ footer p { margin-bottom: var(--spacing-sm); }
     pointer-events: none;
 }
 
+/* L'eau de mer qui descend comme une marée descendante */
+.sea-water-sweep {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(180deg, #006D77 0%, #20B2AA 100%); /* Eau de mer turquoise */
+    z-index: 2;
+    transform: translateY(0);
+    animation: sea-slide-down 3.2s forwards cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sweep-wave {
+    position: absolute;
+    top: -118px; /* Placé juste au-dessus du bloc d'eau */
+    left: 0;
+    width: 100%;
+    height: 120px;
+    transform: scaleY(-1); /* Retourne la vague pour la connecter au bloc d'eau en dessous */
+    z-index: 3;
+}
+
+@keyframes sea-slide-down {
+    0% { transform: translateY(0); }
+    15% { transform: translateY(0); } /* Légère pause pour démarrer */
+    100% { transform: translateY(105vh); } /* Descend complètement hors de l'écran */
+}
+
+/* Les sargasses qui coulent et atterrissent sur le sable */
 .sargasse-rain {
     position: absolute;
     top: 0;
@@ -905,105 +935,58 @@ footer p { margin-bottom: var(--spacing-sm); }
     height: 100%;
     overflow: hidden;
     pointer-events: none;
-    z-index: 1;
+    z-index: 1; /* Derrière l'eau pour être révélées quand elle descend */
 }
 
 .falling-algae {
     position: absolute;
-    opacity: 0.88;
+    opacity: 0.92;
     top: -250px;
     will-change: transform;
 }
 
-/* Algues individuelles avec positions horizontales et animations décalées */
-.algae-1 { left: 5%; width: 90px; height: 120px; animation: fall-and-wiggle-1 12s infinite linear; }
-.algae-2 { left: 28%; width: 70px; height: 90px; animation: fall-and-wiggle-2 16s infinite linear; animation-delay: 2.5s; }
-.algae-3 { left: 52%; width: 100px; height: 130px; animation: fall-and-wiggle-3 14s infinite linear; animation-delay: 1s; }
-.algae-4 { left: 78%; width: 80px; height: 100px; animation: fall-and-wiggle-4 18s infinite linear; animation-delay: 4.2s; }
-.algae-5 { left: 18%; width: 75px; height: 190px; animation: fall-and-wiggle-1 15s infinite linear; animation-delay: 1.8s; }
-.algae-6 { left: 40%; width: 65px; height: 110px; animation: fall-and-wiggle-2 13s infinite linear; animation-delay: 3.5s; }
-.algae-7 { left: 66%; width: 85px; height: 220px; animation: fall-and-wiggle-3 17s infinite linear; animation-delay: 0.5s; }
-.algae-8 { left: 90%; width: 100px; height: 140px; animation: fall-and-wiggle-4 19s infinite linear; animation-delay: 5.5s; }
+/* Algues individuelles avec positions horizontales et atterrissages décalés */
+.algae-1 { left: 5%; width: 90px; height: 120px; animation: fall-and-land-1 2.5s forwards cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.algae-2 { left: 28%; width: 70px; height: 90px; animation: fall-and-land-2 2.7s forwards cubic-bezier(0.25, 0.46, 0.45, 0.94); animation-delay: 0.15s; }
+.algae-3 { left: 52%; width: 100px; height: 130px; animation: fall-and-land-3 2.6s forwards cubic-bezier(0.25, 0.46, 0.45, 0.94); animation-delay: 0.05s; }
+.algae-4 { left: 78%; width: 80px; height: 100px; animation: fall-and-land-4 2.8s forwards cubic-bezier(0.25, 0.46, 0.45, 0.94); animation-delay: 0.25s; }
+.algae-5 { left: 18%; width: 75px; height: 190px; animation: fall-and-land-5 2.8s forwards cubic-bezier(0.25, 0.46, 0.45, 0.94); animation-delay: 0.1s; }
+.algae-6 { left: 40%; width: 65px; height: 110px; animation: fall-and-land-6 2.5s forwards cubic-bezier(0.25, 0.46, 0.45, 0.94); animation-delay: 0.2s; }
+.algae-7 { left: 66%; width: 85px; height: 220px; animation: fall-and-land-7 2.9s forwards cubic-bezier(0.25, 0.46, 0.45, 0.94); animation-delay: 0.03s; }
+.algae-8 { left: 90%; width: 100px; height: 140px; animation: fall-and-land-8 2.7s forwards cubic-bezier(0.25, 0.46, 0.45, 0.94); animation-delay: 0.3s; }
 
-/* Keyframes pour la descente lente et le balancement (wiggle) des algues */
-@keyframes fall-and-wiggle-1 {
-    0% { transform: translateY(-250px) translateX(0) rotate(0deg); }
-    25% { transform: translateY(30vh) translateX(45px) rotate(15deg); }
-    50% { transform: translateY(60vh) translateX(-35px) rotate(-15deg); }
-    75% { transform: translateY(90vh) translateX(25px) rotate(10deg); }
-    100% { transform: translateY(120vh) translateX(0) rotate(5deg); }
+/* Keyframes pour la descente et l'atterrissage des algues sur le sable */
+@keyframes fall-and-land-1 {
+    0% { transform: translateY(-250px) rotate(0deg); }
+    80%, 100% { transform: translateY(72vh) rotate(15deg); }
 }
-
-@keyframes fall-and-wiggle-2 {
-    0% { transform: translateY(-250px) translateX(0) rotate(10deg); }
-    25% { transform: translateY(30vh) translateX(-35px) rotate(-20deg); }
-    50% { transform: translateY(60vh) translateX(40px) rotate(15deg); }
-    75% { transform: translateY(90vh) translateX(-25px) rotate(-10deg); }
-    100% { transform: translateY(120vh) translateX(0) rotate(-15deg); }
+@keyframes fall-and-land-2 {
+    0% { transform: translateY(-250px) rotate(10deg); }
+    80%, 100% { transform: translateY(78vh) rotate(-20deg); }
 }
-
-@keyframes fall-and-wiggle-3 {
-    0% { transform: translateY(-250px) translateX(0) rotate(-15deg); }
-    30% { transform: translateY(35vh) translateX(35px) rotate(10deg); }
-    60% { transform: translateY(70vh) translateX(-45px) rotate(-15deg); }
-    100% { transform: translateY(120vh) translateX(15px) rotate(-5deg); }
+@keyframes fall-and-land-3 {
+    0% { transform: translateY(-250px) rotate(-15deg); }
+    80%, 100% { transform: translateY(70vh) rotate(12deg); }
 }
-
-@keyframes fall-and-wiggle-4 {
-    0% { transform: translateY(-250px) translateX(0) rotate(5deg); }
-    30% { transform: translateY(35vh) translateX(-40px) rotate(-15deg); }
-    65% { transform: translateY(75vh) translateX(30px) rotate(20deg); }
-    100% { transform: translateY(120vh) translateX(-15px) rotate(10deg); }
+@keyframes fall-and-land-4 {
+    0% { transform: translateY(-250px) rotate(5deg); }
+    80%, 100% { transform: translateY(80vh) rotate(-10deg); }
 }
-
-/* Vagues de la mer animées (Toon / Dessin animé) */
-.waves-container {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 240px;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 2;
+@keyframes fall-and-land-5 {
+    0% { transform: translateY(-250px) rotate(-5deg); }
+    80%, 100% { transform: translateY(75vh) rotate(8deg); }
 }
-
-.wave {
-    position: absolute;
-    bottom: -15px;
-    left: 0;
-    width: 200%;
-    height: 100%;
-    will-change: transform;
+@keyframes fall-and-land-6 {
+    0% { transform: translateY(-250px) rotate(8deg); }
+    80%, 100% { transform: translateY(82vh) rotate(-12deg); }
 }
-
-.wave-back {
-    animation: wave-back-move 14s infinite ease-in-out;
+@keyframes fall-and-land-7 {
+    0% { transform: translateY(-250px) rotate(-10deg); }
+    80%, 100% { transform: translateY(73vh) rotate(18deg); }
 }
-
-.wave-mid {
-    animation: wave-mid-move 11s infinite ease-in-out;
-    animation-delay: -2s;
-}
-
-.wave-front {
-    animation: wave-front-move 8s infinite ease-in-out;
-    animation-delay: -4s;
-}
-
-@keyframes wave-back-move {
-    0%, 100% { transform: translateY(40px) translateX(0) scaleY(0.9); }
-    50% { transform: translateY(-30px) translateX(-25%) scaleY(1.1); }
-}
-
-@keyframes wave-mid-move {
-    0%, 100% { transform: translateY(30px) translateX(-25%) scaleY(1.1); }
-    50% { transform: translateY(-40px) translateX(0) scaleY(0.85); }
-}
-
-@keyframes wave-front-move {
-    0%, 100% { transform: translateY(20px) translateX(0) scaleY(0.95); }
-    50% { transform: translateY(-50px) translateX(-20%) scaleY(1.15); }
+@keyframes fall-and-land-8 {
+    0% { transform: translateY(-250px) rotate(12deg); }
+    80%, 100% { transform: translateY(81vh) rotate(-8deg); }
 }
 
 .loader-text {

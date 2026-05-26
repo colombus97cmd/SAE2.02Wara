@@ -1,3 +1,5 @@
+window.isAsyncLoading = true;
+
 async function loadProductDetail() {
     // 1. Récupérer l'ID dans l'URL (ex: produit.html?id=3)
     const urlParams = new URLSearchParams(window.location.search);
@@ -214,16 +216,3 @@ document.addEventListener('DOMContentLoaded', loadProductDetail);
 
 // Recharger si la langue change
 window.addEventListener('languageChanged', loadProductDetail);
-
-/**
- * Cache le préchargeur avec une animation de fondu
- */
-function hidePreloader() {
-    const preloader = document.getElementById('preloader');
-    if (preloader) {
-        preloader.classList.add('fade-out');
-        setTimeout(() => {
-            preloader.style.display = 'none';
-        }, 800); // Durée de la transition CSS (0.8s)
-    }
-}

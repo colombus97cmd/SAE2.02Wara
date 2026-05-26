@@ -1,6 +1,7 @@
 /**
  * Gestion de la page Boutique WARA
  */
+window.isAsyncLoading = true;
 
 let allProducts = []; // Stockage global pour filtrer sans refaire de requêtes API
 
@@ -62,9 +63,12 @@ function initFilters() {
 }
 
 // Lancer l'affichage au chargement de la page
-document.addEventListener('DOMContentLoaded', () => {
-    displayProducts();
+document.addEventListener('DOMContentLoaded', async () => {
+    await displayProducts();
     initFilters();
+    if (typeof window.hidePreloader === 'function') {
+        window.hidePreloader();
+    }
 });
 
 // Recharger si la langue change

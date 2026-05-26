@@ -1,6 +1,7 @@
 /**
  * Gestion de la page d'accueil WARA
  */
+window.isAsyncLoading = true;
 
 async function loadFeaturedProducts() {
     const homeGrid = document.querySelector('.home-grid');
@@ -111,9 +112,12 @@ function initHeroVideoSlideshow() {
 }
 
 // Initialisation au chargement de la page
-document.addEventListener('DOMContentLoaded', () => {
-    loadFeaturedProducts();
+document.addEventListener('DOMContentLoaded', async () => {
+    await loadFeaturedProducts();
     initHeroVideoSlideshow();
+    if (typeof window.hidePreloader === 'function') {
+        window.hidePreloader();
+    }
 });
 
 // Recharger si la langue change
