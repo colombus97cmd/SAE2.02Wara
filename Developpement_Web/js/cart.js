@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <th>${productHead}</th>
                         <th>${qtyHead}</th>
                         <th>${priceHead}</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -58,6 +59,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         <button class="btn-qty plus" data-index="${index}">+</button>
                     </td>
                     <td>${itemTotal.toFixed(2)} €</td>
+                    <td>
+                        <button class="btn-remove-item" data-index="${index}" title="${t['cart_remove']}" style="background: none; border: none; cursor: pointer; font-size: 1.1rem; padding: 4px; transition: transform 0.2s;">
+                            🗑️
+                        </button>
+                    </td>
                 </tr>
             `;
         });
@@ -81,6 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function setupQtyButtons() {
+        // Gestion des quantités +/-
         document.querySelectorAll('.btn-qty').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const index = e.target.getAttribute('data-index');
@@ -95,6 +102,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
 
+                localStorage.setItem('cart', JSON.stringify(cart));
+                renderCart();
+            });
+        });
+
+        // Gestion du bouton supprimer 🗑️
+        document.querySelectorAll('.btn-remove-item').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const button = e.target.closest('.btn-remove-item');
+                const index = button.getAttribute('data-index');
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cart.splice(index, 1);
                 localStorage.setItem('cart', JSON.stringify(cart));
                 renderCart();
             });
