@@ -160,6 +160,9 @@ async function loadProductDetail() {
     } catch (error) {
         console.error("Erreur dans loadProductDetail :", error);
     } finally {
+        if (typeof updateLinksWithLanguage === 'function') {
+            updateLinksWithLanguage();
+        }
         hidePreloader();
     }
 }

@@ -52,6 +52,11 @@ async function displayProducts() {
     if (typeof AOS !== 'undefined') {
         AOS.refresh();
     }
+
+    // Mettre à jour les liens dynamiques pour propager la langue
+    if (typeof updateLinksWithLanguage === 'function') {
+        updateLinksWithLanguage();
+    }
 }
 
 // Configurer les écouteurs d'événements sur les filtres
@@ -72,4 +77,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 // Recharger si la langue change
-window.addEventListener('languageChanged', displayProducts);
+window.addEventListener('languageChanged', () => {
+    allProducts = []; // Réinitialiser le cache pour forcer la récupération dans la nouvelle langue
+    displayProducts();
+});

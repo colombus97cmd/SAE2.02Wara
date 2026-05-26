@@ -34,6 +34,11 @@ async function loadFeaturedProducts() {
     if (typeof AOS !== 'undefined') {
         AOS.refresh();
     }
+
+    // Mettre à jour les liens dynamiques pour propager la langue
+    if (typeof updateLinksWithLanguage === 'function') {
+        updateLinksWithLanguage();
+    }
 }
 
 /**

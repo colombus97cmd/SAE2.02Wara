@@ -84,6 +84,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         setupQtyButtons();
+        
+        // Mettre à jour les liens dynamiques pour propager la langue
+        if (typeof updateLinksWithLanguage === 'function') {
+            updateLinksWithLanguage();
+        }
     }
 
     function setupQtyButtons() {
@@ -142,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     alert(lang === 'fr' ? "Veuillez vous connecter pour valider votre commande !" : "Please log in to validate your order!");
                 }
                 setTimeout(() => {
-                    window.location.href = "connexion.html";
+                    window.location.href = `connexion.html?lang=${lang}`;
                 }, 1500);
                 return;
             }
@@ -178,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             setTimeout(() => {
-                window.location.href = "connexion.html";
+                window.location.href = `connexion.html?lang=${lang}`;
             }, 1800);
         });
     }

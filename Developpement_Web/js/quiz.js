@@ -58,15 +58,22 @@ async function showResults() {
             <h3>${t.quiz_result_title}</h3>
             <div class="products-grid">
                 ${recommendations.map(p => {
-                    const attrs = p.attributes;
-                    const imageUrl = attrs.image?.data ? `http://localhost:1337${attrs.image.data.attributes.url}` : 'assets/img/placeholder.jpg';
+                    const attrs = p.attributes || p;
+                    let imageUrl = 'assets/img/placeholder.jpg';
+                    let imgData = attrs.image?.data?.attributes || attrs.image;
+                    if (Array.isArray(imgData)) imgData = imgData[0];
+                    const singleImg = imgData?.attributes || imgData;
+                    if (singleImg?.url) {
+                        imageUrl = singleImg.url.startsWith('http') ? singleImg.url : `${CONFIG.STRAPI_BASE_URL}${singleImg.url}`;
+                    }
+                    const prodId = p.documentId || p.id;
                     return `
                         <div class="product-card">
                             <img src="${imageUrl}" alt="${attrs.nom}" style="width:100%">
                             <div class="product-info">
                                 <h4>${attrs.nom}</h4>
                                 <p>${attrs.prix.toFixed(2)} €</p>
-                                <a href="produit.html?id=${p.id}" class="btn-secondary">${t.shop_view_product}</a>
+                                <a href="produit.html?id=${prodId}" class="btn-secondary">${t.shop_view_product}</a>
                             </div>
                         </div>
                     `;
@@ -79,6 +86,11 @@ async function showResults() {
             <p>${t.quiz_no_result}</p>
             <button class="btn-primary" onclick="startQuiz()">${t.quiz_retry}</button>
         `;
+    }
+    
+    // Mettre à jour les liens dynamiques pour propager la langue
+    if (typeof updateLinksWithLanguage === 'function') {
+        updateLinksWithLanguage();
     }
 }
 
